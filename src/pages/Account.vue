@@ -1,18 +1,9 @@
 <template>
   <div style="width: 100%; margin-top: 120px;">
     <div class="tabordion">
-
-      <q-breadcrumbs>
-        <q-breadcrumbs-el label="Account" icon="home" />
-        <q-breadcrumbs-el label="Profile" icon="widgets" />
-      </q-breadcrumbs>
       <section id="section1">
         <input type="radio" name="sections" id="option1" checked>
         <label for="option1">Profil</label>
-        <q-breadcrumbs>
-          <q-breadcrumbs-el label="Account" icon="home" />
-          <q-breadcrumbs-el label="Profile" icon="widgets" />
-        </q-breadcrumbs>
         <article>
           <h2>Profil</h2>
           <p>John Ono Lennon, (born John Winston Lennon; 9 October 1940 – 8 December 1980), was an English musician, singer and songwriter who rose to worldwide fame as a founder member of the rock band the Beatles, the most commercially successful band in the history of popular music. With Paul McCartney, he formed a songwriting partnership that is one of the most celebrated of the 20th century.</p>
@@ -36,10 +27,10 @@
       <section id="section3">
         <input type="radio" name="sections" id="option3">
         <label for="option3">Akun Settings</label>
-        <article>
-          <h2>George Harrison</h2>
-          <p>George Harrison, (25 February 1943 – 29 November 2001), was an English musician, multi-instrumentalist, singer and songwriter who achieved international fame as the lead guitarist of the Beatles. Although John Lennon and Paul McCartney were the band's primary songwriters, most of their albums included at least one Harrison composition, including "While My Guitar Gently Weeps", "Here Comes the Sun" and "Something", which became the Beatles' second-most-covered song.</p>
-        </article>
+         <!-- <article> -->
+          
+          <AccountSettings/>
+        <!-- </article> -->
       </section>
 
 
@@ -78,6 +69,7 @@
 </template>
 
 <script>
+import AccountSettings from '../components/AccountSettings'
 export default {
   data () {
     return {
@@ -88,6 +80,9 @@ export default {
     openCity (e) {
 
     }
+  },
+  components: {
+    AccountSettings
   }
 }
 </script>
