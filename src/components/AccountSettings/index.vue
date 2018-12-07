@@ -145,7 +145,7 @@ export default {
 }
 .page{
 	width: 100%;
-	height: 1500px;
+	height: 100%;
 }
 .btn-save{
 	width: 121px;

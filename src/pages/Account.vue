@@ -57,11 +57,7 @@
       <section id="section6">
         <input type="radio" name="sections" id="option6">
         <label for="option6">Inbox</label>
-        <article>
-          <h2>Ringo Starr</h2>
-          <p>Richard Starkey, (born 7 July 1940), better known by his stage name Ringo Starr, is an English musician, singer, songwriter, and actor who gained worldwide fame as the drummer for The Beatles. On most of the band's albums, he sang lead vocals for one song, including "With a Little Help from My Friends", "Yellow Submarine" and their cover of "Act Naturally". He also wrote the Beatles' songs "Don't Pass Me By" and "Octopus's Garden", and is credited as a co-writer of others, such as "What Goes On" and "Flying".</p>
-          <p>Starr was twice afflicted by life-threatening illnesses during his childhood, and as a result of prolonged hospitalisations, fell behind scholastically. In 1955, he entered the workforce and briefly held a position with British Rail before securing an apprenticeship at a Liverpool equipment manufacturer. Soon afterwards, he became interested in the UK skiffle craze, developing a fervent admiration for the genre. In 1957, he cofounded his first band, the Eddie Clayton Skiffle Group, which earned several prestigious local bookings before the fad succumbed to American rock and roll by early 1958.</p>
-        </article>
+        <Inbox/>
       </section>
 
     </div>
@@ -70,6 +66,7 @@
 
 <script>
 import AccountSettings from '../components/AccountSettings'
+import Inbox from '../components/Inbox'
 export default {
   data () {
     return {
@@ -82,7 +79,7 @@ export default {
     }
   },
   components: {
-    AccountSettings
+    AccountSettings, Inbox
   }
 }
 </script>

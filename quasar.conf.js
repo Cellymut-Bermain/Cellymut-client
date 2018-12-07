@@ -59,7 +59,8 @@ module.exports = function (ctx) {
         'QSelect',
         'QInput',
         'QBreadcrumbs',
-        'QBreadcrumbsEl'
+        'QBreadcrumbsEl',
+        'QCollapsible'
       ],
       directives: [
         'Ripple'
