@@ -56,6 +56,10 @@ export default {
       /*font-size: 24px;*/
       font-size: 16.32px;
     }
+    .font-size-paragraph-21 {
+      /*font-size: 21px;*/
+      font-size: 14.28px;
+    }
     .font-size-paragraph-18 {
       font-size: 10.8px !important;
       /*font-size: 18px !important;*/

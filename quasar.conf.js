@@ -57,9 +57,10 @@ module.exports = function (ctx) {
         'QCardMain',
         'QCardActions',
         'QSelect',
-        'QInput'
+        'QInput',
         'QBreadcrumbs',
-        'QBreadcrumbsEl'
+        'QBreadcrumbsEl',
+        'QTable'
       ],
       directives: [
         'Ripple'

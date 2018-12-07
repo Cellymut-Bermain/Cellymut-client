@@ -9,7 +9,13 @@ const routes = [
       { path: '/detail', component: () => import('pages/ProductDetail.vue')},
       { path: '/about', component: () => import('pages/About.vue') },
       { path: '/askme', component: () => import('pages/AskMe.vue') },
-      { path: '/account', component: () => import('pages/Account.vue') }
+      // { path: '/account', component: () => import('pages/Account.vue') },
+      { path: '/account', component: () => import('pages/AccountBackup.vue'),
+        children: [
+          { path: '/account/profile', component: () => import('components/AccountSectionProfile') },
+          { path: '/account/order', component: () => import('components/AccountSectionPesanan') },
+          { path: '/account/keranjang', component: () => import('components/AccountSectionKeranjang') },
+        ]}
     ]
   },
   { path: '/auth', component: () => import('layouts/Auth.vue')}
