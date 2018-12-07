@@ -1,27 +1,13 @@
 <template>
   <div style="width: 100%; margin-top: 120px;">
     <div class="tabordion">
-      <section id="section1">
-        <input type="radio" name="sections" id="option1" checked>
-        <label for="option1">Profil</label>
-        <article>
-          <h2>Profil</h2>
-          <p>John Ono Lennon, (born John Winston Lennon; 9 October 1940 – 8 December 1980), was an English musician, singer and songwriter who rose to worldwide fame as a founder member of the rock band the Beatles, the most commercially successful band in the history of popular music. With Paul McCartney, he formed a songwriting partnership that is one of the most celebrated of the 20th century.</p>
-          <p>Born and raised in Liverpool, as a teenager Lennon became involved in the skiffle craze; his first band, the Quarrymen, evolved into the Beatles in 1960. When the group disbanded in 1970, Lennon embarked on a solo career that produced the critically acclaimed albums John Lennon/Plastic Ono Band and Imagine, and iconic songs such as "Give Peace a Chance" and "Working Class Hero". After his marriage to Yoko Ono in 1969, he changed his name to John Ono Lennon. Lennon disengaged himself from the music business in 1975 to raise his infant son Sean, but re-emerged with Ono in 1980 with the new album Double Fantasy. He was murdered three weeks after its release.</p>
-        </article>
-      </section>
 
 
-      <section id="section2">
-        <input type="radio" name="sections" id="option2">
-        <label for="option2">Keranjang Belanja</label>
-        <article>
-          <h2>Paul McCartney</h2>
-          <p>Sir James Paul McCartney, (born 18 June 1942), is an English musician, singer, songwriter, multi-instrumentalist, and composer. With John Lennon, George Harrison and Ringo Starr, he gained worldwide fame as a member of the Beatles, widely regarded as one of the most popular and influential acts in the history of rock music; his songwriting partnership with Lennon is one of the most celebrated of the 20th century. After the band's break-up, he pursued a solo career and later formed Wings with his first wife, Linda, and Denny Laine.</p>
-          <p>McCartney has been recognised as one of the most successful composers and performers of all time, with 60 gold discs and sales of over 100 million albums and 100 million singles of his work with the Beatles and as a solo artist.[2] More than 2,200 artists have covered his Beatles song "Yesterday", more than any other copyrighted song in history. Wings' 1977 release "Mull of Kintyre" is one of the all-time best-selling singles in the UK. Inducted into the Rock and Roll Hall of Fame as a solo artist in March 1999, McCartney has written, or co-written 32 songs that have reached number one on the Billboard Hot 100, and as of 2014 he has sold more than 15.5 million RIAA-certified units in the United States. McCartney, Lennon, Harrison and Starr received MBEs in 1965, and in 1997, McCartney was knighted for his services to music.</p>
-          <p>McCartney has released an extensive catalogue of songs as a solo artist and has composed classical and electronic music. He has taken part in projects to promote international charities related to such subjects as animal rights, seal hunting, land mines, vegetarianism, poverty, and music education. He has married three times and is the father of five children.</p>
-        </article>
-      </section>
+      <AccountSectionProfile />
+
+
+
+      <AccountSectionPesanan />
 
 
       <section id="section3">
@@ -65,37 +51,41 @@
 </template>
 
 <script>
+
 import AccountSettings from '../components/AccountSettings'
 import Inbox from '../components/Inbox'
-export default {
-  data () {
-    return {
-      leftDrawerOpen: true
-    }
-  },
-  methods : {
-    openCity (e) {
 
+  import AccountSectionProfile from '../components/AccountSectionProfile'
+  import AccountSectionPesanan from '../components/AccountSectionPesanan'
+
+export default {
+    components: {
+      AccountSectionProfile,
+      AccountSectionPesanan,
+      AccountSettings,
+      Inbox
+    },
+    data () {
+      return {
+        leftDrawerOpen: true
+      }
+    },
+    methods : {
+      openCity (e) {
+
+      }
     }
+
   },
-  components: {
-    AccountSettings, Inbox
-  }
+
+
 }
 </script>
 
 <style>
-  h1 {
-    color: #333;
-    font-family: arial, sans-serif;
-    margin: 1em auto;
-    width: 80%;
-  }
-
   .tabordion {
     color: #333;
     display: block;
-    font-family: arial, sans-serif;
     margin: 0px;
     position: relative;
     width: 80%;
@@ -132,7 +122,9 @@ export default {
     position: absolute;
     top: 0;
   }
-
+  article {
+    width: 100%;
+  }
   .tabordion section article:after {
     background-color: #ffffff;
     bottom: 0;
