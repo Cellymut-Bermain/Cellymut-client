@@ -63,16 +63,7 @@ export default {
 </script>
 
 <style scoped>
-input[type=text] {
-  width: 400px;
-  padding: 12px 20px;
-	margin-top: 10px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+
 .forLabel{
 	width: 120px;
   height: 21px;
@@ -87,11 +78,11 @@ input[type=text] {
   color: #707070;
 }
 .btn-auth{
-	 width: 174px;
-  height: 46px;
-  border-radius: 20px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.16);
-  background-color: #766a77;
+	width: 174px;
+	height: 46px;
+	border-radius: 20px;
+	box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.16);
+	background-color: #766a77;
 	color: white
 }
 .btn-fb{

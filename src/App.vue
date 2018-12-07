@@ -29,6 +29,9 @@ export default {
     .text-section2 {
       color: #df8fc5;
     }
+    .text-account {
+      color : #707070;
+    }
     .background-section2 {
       background-color: #fdf5fc;
     }
@@ -70,6 +73,16 @@ export default {
     .align-center {
       text-align: center;
     }
+    input[type=text] {
+      width: 400px;
+      padding: 12px 20px;
+      margin-top: 10px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+}
 
   }
 
