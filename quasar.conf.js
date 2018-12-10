@@ -60,7 +60,7 @@ module.exports = function (ctx) {
         'QInput',
         'QBreadcrumbs',
         'QBreadcrumbsEl',
-        'QCollapsible'
+        'QCollapsible',
         'QTable'
       ],
       directives: [

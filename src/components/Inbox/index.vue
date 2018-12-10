@@ -7,21 +7,21 @@
           </q-breadcrumbs>
 
        <q-list>
-  <q-collapsible group="somegroup" letter="J" right-letter="4.31 PM" multiline icon="star store" label="Cellymut">
+  <q-collapsible group="somegroup"  multiline icon="star store" label="Cellymut">
     <div class="column items-center">
       <img :src="logo" alt="">
       <p class="text-auth kartu">Update Kartu Tantangan</p>
       <q-btn class="btn-download">download</q-btn>
     </div>
   </q-collapsible>
-  <q-collapsible group="somegroup" icon="star store" letter="adasd" right-letter="12 Nov" label="Cellymut">
+  <q-collapsible group="somegroup" icon="star store"   label="Cellymut">
       <div class="column items-center">
       <img :src="logo" alt="">
       <p class="text-auth kartu">Update Kartu Tantangan</p>
       <q-btn class="btn-download">download</q-btn>
     </div>
   </q-collapsible>
-  <q-collapsible group="somegroup" icon="star store" label-lines="asdsad" right-letter="12 Nov" label="Cellymut">
+  <q-collapsible group="somegroup" icon="star store" label-lines="asdsad"  label="Cellymut">
       <div class="column items-center">
       <img :src="logo" alt="">
       <p class="text-auth kartu">Update Kartu Tantangan</p>

@@ -14,7 +14,7 @@
           </p>
         </q-card-main>
         <q-card-actions align="center" >
-          <q-btn icon="shopping_cart" text-color="white" no-caps="true" class="style-button-2">Tambah ke Keranjang</q-btn>
+          <q-btn icon="shopping_cart" text-color="white" :no-caps="true" class="style-button-2">Tambah ke Keranjang</q-btn>
         </q-card-actions>
       </q-card>
       </div>
@@ -24,7 +24,7 @@
         <img class="bed" :src="monopoly1" alt="">
       </div>
     </div>
-    <div class="col-lg-3">
+    <div v-if="width>991" class="col-lg-3">
       <div class="row wrap justify-center">
         <img class="size-image" :src="monopoly2" alt="">
       </div>
@@ -40,11 +40,32 @@
   import monopoly2 from '../../assets/assets/monopoly-02.png'
   import monopoly3 from '../../assets/assets/monopoly-03.png'
   export default {
+    mounted () {
+      this.checkingSize()
+    },
     data () {
       return {
         monopoly1,
         monopoly2,
-        monopoly3
+        monopoly3,
+        width: 2000,
+        height: 2000
+      }
+    },
+    methods: {
+      checkingSize () {
+        window.addEventListener('resize', (e) => {
+          this.width = e.target.innerWidth
+          this.height = e.target.innerHeight
+        })
+        var w = window,
+          d = document,
+          e = d.documentElement,
+          g = d.getElementsByTagName('body')[0],
+          x = w.innerWidth || e.clientWidth || g.clientWidth,
+          y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        this.width = x
+        this.height = y
       }
     }
   }

@@ -1,11 +1,11 @@
 <template>
   <div class="section-3 row wrap items-center justify-center ">
-    <div class="col-lg-5 justify-center">
+    <div v-if="width>991" class="col-lg-5 justify-center">
       <div class="row wrap justify-center">
         <img class="size-ular-image" :src="ular_tangga1" alt="">
       </div>
     </div>
-    <div class="col-lg-2 justify-center">
+    <div v-if="width>991" class="col-lg-2 justify-center">
       <div class="row wrap justify-center">
         <img class="size-ular" :src="ular_tangga2" alt="">
       </div>
@@ -13,7 +13,7 @@
         <img class="size-ular" :src="ular_tangga3" alt="">
       </div>
     </div>
-    <div class="col-lg-5 justify-center">
+    <div  class="col-lg-5 justify-center">
       <div class="row wrap justify-center">
         <q-card flat>
           <q-card-title class="text-section3 ">
@@ -26,7 +26,7 @@
             </p>
           </q-card-main>
           <q-card-actions align="center" >
-            <q-btn icon="shopping_cart" text-color="white" no-caps="true" class="style-button-3">Tambah ke Keranjang</q-btn>
+            <q-btn icon="shopping_cart" text-color="white" no-caps class="style-button-3">Tambah ke Keranjang </q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -39,11 +39,32 @@
   import ular_tangga2 from '../../assets/assets/ulartangga-02.png'
   import ular_tangga3 from '../../assets/assets/ulartangga-03.png'
   export default {
+    mounted () {
+      this.checkingSize()
+    },
     data () {
       return {
         ular_tangga1,
         ular_tangga2,
-        ular_tangga3
+        ular_tangga3,
+        width: 2000,
+        height: 2000,
+      }
+    },
+    methods: {
+      checkingSize () {
+        window.addEventListener('resize', (e) => {
+          this.width = e.target.innerWidth
+          this.height = e.target.innerHeight
+        })
+        var w = window,
+          d = document,
+          e = d.documentElement,
+          g = d.getElementsByTagName('body')[0],
+          x = w.innerWidth || e.clientWidth || g.clientWidth,
+          y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        this.width = x
+        this.height = y
       }
     }
   }
@@ -67,7 +88,7 @@
     padding: 12px
   }
   .style-button-3 {
-    width: 55% !important;
+    width: 80%;
     height: 46px;
     border-radius: 20px;
     box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.16);

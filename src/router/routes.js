@@ -15,6 +15,8 @@ const routes = [
           { path: '/account/profile', component: () => import('components/AccountSectionProfile') },
           { path: '/account/order', component: () => import('components/AccountSectionPesanan') },
           { path: '/account/keranjang', component: () => import('components/AccountSectionKeranjang') },
+          { path: '/account/setting', component: () => import('components/AccountSettings') },
+          { path: '/account/inbox', component: () => import('components/Inbox') }
         ]}
     ]
   },

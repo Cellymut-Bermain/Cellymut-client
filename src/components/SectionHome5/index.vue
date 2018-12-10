@@ -10,9 +10,9 @@
           <p class="font-size-paragraph-28 font-weight-normal" style="color: #6c6c6c;"> Gabung di komunitas Cellymut Sekarang! </p>
         </div>
         <div class="row wrap justify-center">
-          <q-card-actions >
-            <q-btn no-caps text-color="white" class="style-button-5"> Gabung Sekarang! </q-btn>
-          </q-card-actions>
+          <!--<q-card-actions >-->
+            <!--<q-btn no-caps text-color="white" class="style-button-5"> Gabung Sekarang! </q-btn>-->
+          <!--</q-card-actions>-->
         </div>
     </div>
   </div>

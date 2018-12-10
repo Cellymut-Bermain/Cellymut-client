@@ -61,7 +61,6 @@
     grid-template-areas:
       'menu main main main main main'
       'footer footer footer footer footer footer';
-    background-color: blue;
     grid-gap: 10px;
     padding: 10px;
   }

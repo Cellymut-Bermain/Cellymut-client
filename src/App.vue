@@ -6,7 +6,9 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  components : {
+  }
 }
 </script>
 
@@ -66,6 +68,12 @@ export default {
     .font-size-paragraph-18 {
       font-size: 10.8px !important;
       /*font-size: 18px !important;*/
+    }
+    .font-size-mobile-24 {
+      font-size: 24px;
+    }
+    .font-size-mobile-16 {
+      font-size: 16px;
     }
     .padding-right-28 {
       padding-right: 28px;

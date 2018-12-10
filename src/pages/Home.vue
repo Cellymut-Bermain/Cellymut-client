@@ -24,7 +24,7 @@ export default {
     SectionHome2,
     SectionHome3,
     SectionHome4,
-    SectionHome5
+    SectionHome5,
   }
 }
 </script>
