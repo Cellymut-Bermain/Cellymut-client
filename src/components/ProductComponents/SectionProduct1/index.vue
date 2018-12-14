@@ -24,7 +24,7 @@
 					</div>
 				</div>
 					<div class="row justify-center">
-						<q-btn text-color="white" @click="moveToDetail" icon-right="arrow_forward_ios" no-caps="true" class="btn-lanjut">
+						<q-btn text-color="white" @click="moveToDetail" icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut">
 							Lebih Lanjut
 						</q-btn>
 					</div>

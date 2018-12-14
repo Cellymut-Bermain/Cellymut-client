@@ -1,12 +1,14 @@
 <template>
   <div>
-
-    <div v-if="width>991" class="section-1 row wrap items-center justify-center">
+    <div v-if="width>991" class="section-1 row wrap items-end justify-center">
       <div class="col-lg-8 col-md-8 col-sm-12" >
-        <img class="stop-motion" :src="stopMotion" alt="">
+        <!--<img class="stop-motion" :src="stopMotion" alt="">-->
+        <video autoplay loop>
+          <source style="height: 200px" :src="video" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
       </div>
-
-      <div class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal" >
+      <div class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal self-center" >
         <q-card flat>
           <q-card-title align="right" class="text-navbar">
             <h1 class="font-size-header-48 font-weight-normal">Hallo Bunda dan Ayah</h1>
@@ -41,6 +43,7 @@
 <script>
   import {stopMotion} from '../../config/images'
   import logo from '../../assets/assets/logo-cellimut.png'
+  import video from '../../assets/assets/celimut-motion (2).mp4'
   export default {
     mounted () {
       this.checkingSize()
@@ -52,7 +55,8 @@
           'Jane Permana yang memiliki dua anak balita.',
         logo,
         width: 2000,
-        height: 2000
+        height: 2000,
+        video
       }
     },
     methods: {
@@ -82,6 +86,6 @@
   }
   .stop-motion {
     width: 100%;
-    height: auto;
+    height: auto!important;
   }
 </style>

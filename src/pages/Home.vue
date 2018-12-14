@@ -1,11 +1,11 @@
 <template>
-  <q-page class="flex">
-    <SectionHome1  />
-    <SectionHome2 />
-    <SectionHome3 />
-    <SectionHome4 />
-    <SectionHome5 />
-  </q-page>
+    <q-page class="flex">
+      <SectionHome1 class="margin-top" />
+      <SectionHome2 />
+      <SectionHome3 />
+      <SectionHome4 />
+      <SectionHome5 />
+    </q-page>
 </template>
 
 <style>
@@ -28,3 +28,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .margin-top {
+    margin-top: -88.7px;
+  }
+</style>

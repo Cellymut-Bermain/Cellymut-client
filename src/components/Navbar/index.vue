@@ -1,5 +1,4 @@
 <template>
-  <q-layout-header>
     <q-toolbar id="toolbar-nav" color="transparent" text-color="navbar">
       <a @click="toHome" href="#"><img class="logo-size" :src="logo" alt="logo celimute" ></a>
       <q-toolbar-title>
@@ -13,15 +12,23 @@
       <q-btn v-if="width>991" no-ripple flat to="/askme"  >
         Tanya Kami
       </q-btn>
-      <q-btn no-ripple flat v-if="width<=991" icon="menu" @click="openNav"></q-btn>
+      <q-btn v-if="width>991 && loginStatus" no-ripple flat @click="logout"  >
+        Logout
+      </q-btn>
+      <q-btn  no-ripple flat v-if="width<=991" icon="menu" @click="openNav"></q-btn>
+      <p style="margin: auto;"> Hi <a class="first_name" @click="toAccount">{{first_name}},</a></p>
+      <q-btn flat icon="shopping_cart" @click="shoppingButton" round >
+      </q-btn>
     </q-toolbar>
-  </q-layout-header>
 </template>
 
 <script>
   import { openURL } from 'quasar'
   import {logo} from '../../config/images'
   import {color1} from '../../config/color'
+  import {mapState} from 'vuex'
+  const token = localStorage.getItem('token')
+  const first_name = localStorage.getItem('first_name')
   export default {
     name: 'MyLayout',
     data () {
@@ -29,10 +36,40 @@
         logo,
         color1,
         width: 2000,
-        height: 2000
+        height: 2000,
+        first_name
       }
     },
+    computed: {
+      ...mapState([
+        'loginStatus'
+      ])
+    },
     methods: {
+      toAccount () {
+        this.$router.push('/account/profile')
+      },
+      shoppingButton () {
+        if (token) {
+
+        }
+        else {
+          this.$router.push('/auth')
+        }
+      },
+      logout () {
+        localStorage.clear()
+        this.$store.commit('setLoginStatus', false)
+        this.$router.push('/auth')
+      },
+      checkLoginStatus () {
+        if (token) {
+          this.$store.commit('setLoginStatus', true)
+        }
+        else {
+          this.$store.commit('setLoginStatus', false)
+        }
+      },
       toHome() {
         this.$router.push('/')
         // document.getElementById("mySidenav").style.width = "0";
@@ -61,7 +98,9 @@
       }
     },
     mounted () {
+      this.checkLoginStatus()
       this.checkingSize()
+
     }
   }
 </script>
@@ -70,5 +109,14 @@
 .barName{
   text-decoration: none;
 }
+  .first_name {
+    color: #ec6e82;
+    text-decoration: none;
+  }
+  .first_name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
 </style>
 

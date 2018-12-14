@@ -28,7 +28,7 @@
 									<img :src="pilihan1" alt=""  class="image1">
 									<div class="mid-absolute">
 											<p class="mid">monopoly cellymut</p>	
-									<q-btn text-color="white" icon="shopping_cart" no-caps="true" class="btn-lanjut">
+									<q-btn text-color="white" icon="shopping_cart" :no-caps="true" class="btn-lanjut">
 										Tambah ke Keranjang
 									</q-btn>
 									</div>

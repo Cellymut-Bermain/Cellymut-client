@@ -4,9 +4,9 @@
       <Navbar />
       <SideNavbar />
     </q-layout-header>
-    <!--<q-page-container>-->
+    <q-page-container >
       <router-view />
-    <!--</q-page-container>-->
+    </q-page-container>
   </q-layout>
 </template>
 
@@ -26,7 +26,9 @@ export default {
     }
   },
   methods: {
-    openURL
+    openURL,
+  },
+  mounted () {
   }
 }
 </script>

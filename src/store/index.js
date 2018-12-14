@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import example from './module-example'
-
+import axios from 'axios'
+import swal from 'sweetalert'
+import router from '../router/index'
+import {api} from "../config";
+import { Notify } from 'quasar'
 Vue.use(Vuex)
 
 /*
@@ -10,12 +12,32 @@ Vue.use(Vuex)
  * directly export the Store instantiation
  */
 
-export default function (/* { ssrContext } */) {
-  const Store = new Vuex.Store({
-    modules: {
-      example
+export default new Vuex.Store({
+  state: {
+    loginStatus : false,
+    productDetail: null
+  },
+  mutations: {
+    setLoginStatus (state, payload) {
+      state.loginStatus = payload
+    },
+    setProductDetail (state, payload) {
+      state.productDetail = payload
     }
-  })
 
-  return Store
-}
+  },
+  actions: {
+    fetchingProductDetail ({commit}, id) {
+      axios.get(api+'items/'+id)
+        .then(({data})=> {
+          let {item} = data
+          console.log(item, 'item detail')
+          commit('setProductDetail', item)
+        })
+        .catch(err=> {
+          console.log(err)
+        })
+
+    }
+  }
+})

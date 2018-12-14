@@ -5,5 +5,15 @@
       <q-breadcrumbs-el label="Account" />
       <q-breadcrumbs-el label="Keranjang Saya" />
     </q-breadcrumbs>
+    <TableCart />
   </div>
 </template>
+
+<script>
+  import TableCart from './TableCart'
+  export default {
+    components: {
+      TableCart
+    }
+  }
+</script>

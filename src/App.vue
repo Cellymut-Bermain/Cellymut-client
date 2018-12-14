@@ -18,8 +18,8 @@ export default {
       font-family: "Helvetica Neue";
     }
     .logo-size {
-      width: 148px !important;
-      height: 112px !important;
+      width: 60% !important;
+      height: auto !important;
       /*box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);*/
     }
     .text-navbar {

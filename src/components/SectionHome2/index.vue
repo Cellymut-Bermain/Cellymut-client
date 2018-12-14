@@ -14,7 +14,7 @@
           </p>
         </q-card-main>
         <q-card-actions align="center" >
-          <q-btn icon="shopping_cart" text-color="white" :no-caps="true" class="style-button-2">Tambah ke Keranjang</q-btn>
+          <q-btn icon="shopping_cart" text-color="white" :no-caps="true" class="style-button-2" @click="toDetailProduct" >Tambah ke Keranjang</q-btn>
         </q-card-actions>
       </q-card>
       </div>
@@ -53,6 +53,9 @@
       }
     },
     methods: {
+      toDetailProduct () {
+        this.$router.push('/detail/1')
+      },
       checkingSize () {
         window.addEventListener('resize', (e) => {
           this.width = e.target.innerWidth
