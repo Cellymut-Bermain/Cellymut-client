@@ -24,8 +24,8 @@
 					</div>
 				</div>
 					<div class="row justify-center">
-						<q-btn text-color="white" @click="moveToDetail" icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut">
-							Lebih Lanjut
+						<q-btn @click="openPDF" text-color="white"  icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut">
+							Lihat Selengkapnya
 						</q-btn>
 					</div>
      
@@ -45,17 +45,24 @@ export default {
 	methods: {
 		moveToDetail(){
 			this.$router.push('/detail')
-		}
+		},
+    openPDF () {
+      window.open('../../../assets/assets/Game Tutorial monopoly.pdf')
+    }
 	}
 }
 </script>
 <style scoped>
 .image{
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 .section1{
 	padding-top: 120px;
+
+}
+.background-section2 {
+  height: 100vh;
 }
 .test{
 	padding: 0

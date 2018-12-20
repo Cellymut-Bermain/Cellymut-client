@@ -1,14 +1,12 @@
 <template>
   <div style="width: 100%" >
-    <q-card>
+    <q-card flat>
       <q-card-title>
         <h1 class="align-center font-weight-normal font-size-header-48" style="color: #766a77">Kontak Kami</h1>
       </q-card-title>
       <div class="row wrap justify-center">
-        <q-card-main style="width: 50%">
-          <label for="name"> Nama</label> <br>
+        <q-card-main style="width: 100%" class="align-center">
           <input type="text" id="name"  class="input-style" placeholder="Your Name"> <br>
-          <label for="email"> Email</label> <br>
           <input type="text" id="email"  class="input-style" placeholder="Your Email">
         </q-card-main>
       </div>

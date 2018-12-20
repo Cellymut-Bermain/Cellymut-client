@@ -1,6 +1,6 @@
 <template>
 	<div class="section1 row">
-			<div class="col-md-7 col-xs-12 col-sm-12"> 
+			<div class="col-lg-7 col-md-12">
 				<div class="container">
 					<img v-if="productDetail"  :src="productDetail.item_image" width="100%" alt="">
 					<!--<div class="row wrap justify-around show">-->
@@ -28,9 +28,12 @@
 							<div class="column">
 								<p class="text-navbar font-size-subheader-28 font-weight-normal">Size</p>
 								<q-select
+                  style="margin-top: -14px"
+                  float-label="Select Size"
 								v-model="size"
 								:options="selectOptions"
                 @input="newVal(size)"
+                  class="cursor"
 								/>
 							</div>
 						</div>
@@ -38,21 +41,34 @@
 							<div class="column">
 								<p class="text-navbar font-size-subheader-28 font-weight-normal">Name</p>
 									<!-- <q-input class="inputText" v-model="text" placeholder="Your Name" /> -->
+                <q-tooltip>Nama ini akan tertera di Cellymut anda</q-tooltip>
 									<input v-model="name" type="text" placeholder="Your Name" class="inputText">
 							</div>
 						</div>
 					</q-card-main>
+
 					<q-card-main>
 						<div class="column">
 						<p class="text-navbar font-size-subheader-28 font-weight-normal">Color</p>
-						<div class="row">
+
+						<div v-if="colors.length>0" class="row">
 							<div v-for="(color,index) in colors" :key=index>
-								<img class="image-click" @click="chooseColor(color)" :src="color" width="35px" height="35px" alt="">
+								<img class="image-click" :src="color" width="35px" height="35px" alt=""><br>
+                <q-radio v-if="radioCheck" @input="chooseColor(color)" style="margin: auto; margin-left: 8px" v-model="option" :val="color"/>
 							</div>
-						</div><br>
-              <p style="font-weight: 500">{{color_pick}}</p>
+						</div>
+
+              <div v-if="colors.length==0" class="row text-navbar">
+                <h2 class="font-size-header-48 font-weight-normal">Mohon Maaf Stock Habis untuk ukuran ini</h2>
+              </div>
+
+              <br>
+              <p class="text-navbar" style="font-weight: 500">Warna yang tersedia</p>
 							<!--<button class="light disabled btn-sold">Sold Out</button><br><br>-->
-              <q-btn @click="addToCart" flat> Add to Cart </q-btn>
+              <q-card-actions style="padding-left: 0px">
+                <q-btn v-if="colors.length>0" @click="addToCart" color="primary"> Add to Cart </q-btn>
+                <q-btn v-if="colors.length===0" disabled no-ripple> Soldout </q-btn>
+              </q-card-actions>
 							<p>Included with the purchase of this product:</p>
 							<ul>
 								<li>
@@ -94,12 +110,15 @@ export default {
       ularTangga,
       pilihan3,
       selectOptions: [
-        {label: 'King Size', value: 'King Size (230cm x 230cm)'},
         {label: 'Single Size', value: 'Single Size (150cm x 230 cm)'},
+        {label: 'King Size', value: 'King Size (230cm x 230cm)'},
       ],
       size: null,
       colors: [
+        mullberry, mustard, orange, penny, red, roselight, rosewood, squash
       ],
+      option: '',
+      radioCheck: false
     }
   },
   computed: {
@@ -112,8 +131,8 @@ export default {
       'fetchingProductDetail'
     ]),
     async addToCart () {
-      if (!this.size || !this.color_pick || this.name)  {
-        return swal('Mohon pilih size dan warna!!')
+      if (!this.size || !this.color_pick || !this.name)  {
+        return swal('Mohon pilih lengkapi field yang tersedia!!')
       }
       try {
         let {data} = await axios.get(api+'items/size/color', {
@@ -131,11 +150,25 @@ export default {
           }
         })
         console.log(addToCart.data)
-        swal('Berhasil menambahkan ke Cart!!')
+        this.$store.commit('addCart', data)
+        this.swalAddCart()
       }
       catch (e) {
         console.log(e)
       }
+    },
+    swalAddCart () {
+      swal({
+        title: "Berhasil menambahkan item ke Keranjang!!",
+        text: 'Apakah ingin pergi ke Halaman Keranjang?',
+        buttons: ["Tidak", "Ya"],
+      })
+        .then((willDelete) => {
+          if (willDelete) {
+            this.$router.push('/account/keranjang')
+          } else {
+          }
+        });
     },
     chooseColor(color) {
         let temp = color
@@ -146,11 +179,12 @@ export default {
         this.color_pick = temp
     },
     newVal(value) {
+      this.radioCheck = true
       let color = require('../../../config/images.js')
-      console.log('ini', mustard)
       axios.get(api+'items/size/all', {
         headers: {
-          size: value
+          size: value,
+          item_name: this.productDetail.item_name
         }
       })
         .then(({data}) => {
@@ -208,6 +242,9 @@ export default {
 }
 .image{
 	padding: 5px;
+}
+.cursor {
+  /*cursor: pointer;*/
 }
 @media only screen and (max-width: 400px){
 	.show{

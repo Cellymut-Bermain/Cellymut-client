@@ -8,7 +8,7 @@
         <div class="row wrap items-start justify-center">
 
 
-          <div class="col-lg-6 padding-outside-card padding-right-32 padding-top-16 padding-bottom-16">
+          <div class="col-lg-6 padding-outside-card padding-right-32 padding-top-16 padding-bottom-16 padding-0">
             <div class="row wrap justify-center">
             <q-card  class="padding-card card-color-1" style="width:100%">
               <q-card-main>
@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6 padding-outside-card padding-left-32 padding-top-16 padding-bottom-16">
+          <div class="col-lg-6 padding-outside-card padding-left-32 padding-top-16 padding-bottom-16 padding-0">
             <div class="row wrap justify-center">
               <q-card class="padding-card card-color-2" style="width:100%">
                 <q-card-main>
@@ -44,7 +44,7 @@
 
         <div class="row wrap items-start justify-center">
 
-          <div class="col-lg-6 padding-outside-card padding-right-32 padding-top-16 padding-bottom-16">
+          <div class="col-lg-6 padding-outside-card padding-right-32 padding-top-16 padding-bottom-16 padding-0">
             <div class="row wrap justify-center">
               <q-card class="padding-card card-color-3" style="width:100%">
                 <q-card-main>
@@ -61,7 +61,7 @@
           </div>
 
 
-          <div class="col-lg-6 padding-outside-card padding-left-32 padding-top-16 padding-bottom-16">
+          <div class="col-lg-6 padding-outside-card padding-left-32 padding-top-16 padding-bottom-16 padding-0">
             <div class="row wrap justify-center">
               <q-card class="padding-card card-color-4" style="width:100%">
                 <q-card-main>
@@ -124,6 +124,14 @@
   .card-color-4 {
     background-color: #e9bcb8;
     color: #ffffff;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .padding-0 {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+
   }
 
 </style>

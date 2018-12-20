@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import aboutBottomImage from '../../assets/assets/ulartangga-01.png'
+  import aboutBottomImage from '../../assets/assets/Pintu2-bawah.png'
   export default {
     data () {
       return {

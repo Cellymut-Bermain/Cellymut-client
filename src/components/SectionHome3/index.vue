@@ -38,6 +38,7 @@
   import ular_tangga1 from '../../assets/assets/ulartangga-01.png'
   import ular_tangga2 from '../../assets/assets/ulartangga-02.png'
   import ular_tangga3 from '../../assets/assets/ulartangga-03.png'
+  const token = localStorage.getItem('token')
   export default {
     mounted () {
       this.checkingSize()
@@ -51,9 +52,26 @@
         height: 2000,
       }
     },
+    computed: {
+      token : {
+        get () {
+          return this.$store.state.token
+        }
+      }
+    },
     methods: {
       toDetailProduct () {
-        this.$router.push('/detail/2')
+        if (!this.token) {
+          // this.$router.push('/auth')
+          this.$q.notify({
+            message: "You have to login first!",
+            timeout: 2000,
+            color: 'positive',
+          })
+        }
+        else {
+          this.$router.push('/detail/2')
+        }
       },
       checkingSize () {
         window.addEventListener('resize', (e) => {

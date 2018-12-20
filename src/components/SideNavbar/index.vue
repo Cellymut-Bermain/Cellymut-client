@@ -1,10 +1,23 @@
 <template>
   <div id="mySidenav" class="sidenav">
     <a href="#" class="closebtn" @click="closeNav" >&times;</a>
-    <a href="#" @click="toPage('/')">Home</a>
-    <a href="#" @click="toPage('/product')">Product</a>
-    <a href="#" @click="toPage('/about')">Tentang Kami</a>
-    <a href="#" @click="toPage('/askme')">Tanya Kami</a>
+    <q-collapsible style="padding: 0 !important;" label="First">
+      <template slot="header">
+        <a  style="margin-left: -16px" class="align-left" href="#" >Akun Saya</a>
+        <q-item-main />
+        <q-item-side right>
+          <q-icon />
+        </q-item-side>
+      </template>
+      <a class="align-left border-top" href="#" @click="toPage('/account/setting')">Profile</a>
+      <a class="align-left border-top" href="#" @click="toPage('/account/keranjang')">Keranjang Belanja</a>
+      <a class="align-left border-top" href="#" @click="toPage('/account/order')">Pesanan Saya</a>
+      <a class="align-left border-top border-bottom" href="#" @click="toPage('/account/inbox')">Updates</a>
+    </q-collapsible>
+    <a class="align-left" href="#" @click="toPage('/')">Home</a>
+    <a class="align-left" href="#" @click="toPage('/product')">Product</a>
+    <a class="align-left" href="#" @click="toPage('/about')">Tentang Kami</a>
+    <a class="align-left" href="#" @click="toPage('/askme')">Tanya Kami</a>
   </div>
 </template>
 
@@ -61,6 +74,14 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+  .border-top {
+    border-top: 1px solid white;
+    width: 100%;
+  }
+  .border-bottom {
+    border-bottom: 1px solid white;
+    width: 100%;
   }
 
   @media screen and (max-height: 450px) {

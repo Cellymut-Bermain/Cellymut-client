@@ -5,6 +5,8 @@
       <SectionHome3 />
       <SectionHome4 />
       <SectionHome5 />
+      <Footer />
+      <!--<Anime />-->
     </q-page>
 </template>
 
@@ -17,6 +19,8 @@
   import SectionHome3 from '../components/SectionHome3'
   import SectionHome4 from '../components/SectionHome4'
   import SectionHome5 from '../components/SectionHome5'
+  // import Anime from './Anime'
+  import Footer from '../components/Footer/index.vue'
 export default {
   name: 'PageIndex',
   components: {
@@ -25,12 +29,13 @@ export default {
     SectionHome3,
     SectionHome4,
     SectionHome5,
+    Footer
   }
 }
 </script>
 
 <style>
   .margin-top {
-    margin-top: -88.7px;
+    margin-top: -104.7px;
   }
 </style>

@@ -13,9 +13,9 @@ export default {
 </script>
 
 <style>
-  @media only screen and (max-width: 1440px) {
+  /*@media only screen and (max-width: 1440px) {*/
     html, body ,  p, h1, h2, h3, h4, h5 {
-      font-family: "Helvetica Neue";
+      font-family: "Roboto";
     }
     .logo-size {
       width: 60% !important;
@@ -44,7 +44,7 @@ export default {
       color: #766a77;
     }
     .font-weight-normal {
-      font-weight: 500;
+      font-weight: 500 !important;
     }
     .font-weight-bold {
       font-weight: bold;
@@ -52,6 +52,9 @@ export default {
     .font-size-header-48 {
       /*font-size: 48px !important;*/
       font-size: 28.8px !important;
+    }
+    .font-size-36 {
+      font-size: 24.8px;
     }
     .font-size-subheader-28 {
       font-size: 19.8px !important;
@@ -81,6 +84,12 @@ export default {
     .align-center {
       text-align: center;
     }
+    .align-right {
+      text-align: right;
+    }
+    .align-left {
+      text-align: left;
+    }
     input[type=text] {
       width: 400px;
       padding: 12px 20px;
@@ -91,7 +100,38 @@ export default {
       border-radius: 4px;
       box-sizing: border-box;
 }
-
+    input[type=password] {
+      width: 400px;
+      padding: 12px 20px;
+      margin-top: 10px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size:16px;
+    }
+  input[type=number] {
+    width: 400px;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
   }
+
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  /*input::-webki {*/
+    /*font-size: 16px;*/
+  /*}*/
+  /*}*/
 
 </style>

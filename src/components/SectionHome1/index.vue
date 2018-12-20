@@ -1,20 +1,26 @@
 <template>
   <div>
     <div v-if="width>991" class="section-1 row wrap items-end justify-center">
+
+
       <div class="col-lg-8 col-md-8 col-sm-12" >
         <!--<img class="stop-motion" :src="stopMotion" alt="">-->
-        <video autoplay loop>
-          <source style="height: 200px" :src="video" type="video/mp4">
+        <video v-if="!ended" class="video-class" style="width: 130%" id="myVideo" muted>
+          <source :src="video" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
+        <img v-if="ended" style="width: 100%; height: auto" :src="stopMotion" alt="">
       </div>
-      <div class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal self-center" >
+
+      <div  class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal self-center" >
         <q-card flat>
           <q-card-title align="right" class="text-navbar">
-            <h1 class="font-size-header-48 font-weight-normal">Hallo Bunda dan Ayah</h1>
+            <h1 v-if="!showText" style="color: #e9e7f1;" class="font-size-header-48 font-weight-normal">Hallo Bunda dan Ayah</h1>
+            <h1 v-if="showText" class="font-size-header-48 font-weight-normal">Hallo Bunda dan Ayah</h1>
           </q-card-title>
           <q-card-main align="right" class="text-navbar font-size-subheader-28 font-weight-normal">
-            <p class="font-weight-normal"> {{textMain}} </p>
+            <p  v-if="!showText" style="color: #e9e7f1;" class="font-weight-normal"> {{textMain}} </p>
+            <p v-if="showText" class="font-weight-normal"> {{textMain}} </p>
           </q-card-main>
         </q-card>
       </div>
@@ -41,12 +47,23 @@
 </template>
 
 <script>
+
   import {stopMotion} from '../../config/images'
   import logo from '../../assets/assets/logo-cellimut.png'
   import video from '../../assets/assets/celimut-motion (2).mp4'
+  import $ from 'jquery'
   export default {
     mounted () {
       this.checkingSize()
+      // console.log(this.opened,'opened')
+      // if (this.opened==false) {
+      //   console.log(this.opened,'opened')
+      //   this.videoEnded()
+      // }
+      if (this.opened===false) {
+        this.$store.commit('setEnded', true)
+        this.$store.commit('setShowText', true)
+      }
     },
     data () {
       return {
@@ -56,7 +73,27 @@
         logo,
         width: 2000,
         height: 2000,
-        video
+        video,
+      }
+    },
+    computed: {
+      opened: {
+        get () {
+          return this.$store.state.opened
+        }
+      },
+      showText: {
+        get () {
+          return this.$store.state.showText
+        }
+      },
+      ended : {
+        get() {
+          return this.$store.state.ended
+        },
+        set (value) {
+          this.$store.commit('setEnded', value)
+        }
       }
     },
     methods: {
@@ -73,7 +110,7 @@
           y = w.innerHeight|| e.clientHeight|| g.clientHeight;
         this.width = x
         this.height = y
-      }
+      },
     }
   }
 </script>
@@ -87,5 +124,8 @@
   .stop-motion {
     width: 100%;
     height: auto!important;
+  }
+  .video-class {
+    height: auto !important;
   }
 </style>

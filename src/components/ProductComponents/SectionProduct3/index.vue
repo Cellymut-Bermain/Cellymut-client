@@ -1,5 +1,5 @@
 <template>
-	<div class="section1">
+	<div class="section1 ">
 		<div class="row justify-center">
 			<h1 class="font-size-header-48 font-weight-normal text-navbar">Game Tutorial Ular Tangga</h1>
 		</div>
@@ -23,8 +23,8 @@
 					</div>
 				</div>
 					<div class="row justify-center">
-						<q-btn text-color="white" icon-right="arrow_forward_ios" no-caps="true" class="btn-lanjut">
-							Lebih Lanjut
+						<q-btn @click="openPDF" text-color="white" icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut">
+              Lihat Selengkapnya
 						</q-btn>
 					</div>
 			</div>
@@ -43,7 +43,12 @@ export default {
 		return{
 			gameTutorial2
 		}
-	}
+	},
+  methods: {
+    openPDF () {
+      window.open('../../../assets/assets/Game Tutorial Ular Tangga.pdf')
+    }
+  }
 }
 </script>
 <style scoped>
@@ -54,7 +59,7 @@ export default {
 .section1{
 	padding-top: 30px;
 	background: #cfe1e3;
-	height: 100%;
+	height: 100vh;
 }
 .test{
 	padding: 0

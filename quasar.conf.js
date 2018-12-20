@@ -65,9 +65,21 @@ module.exports = function (ctx) {
         'QTabs',
         'QTab',
         'QTabPane',
+        'QTr',
+        'QTd',
+        'QTooltip',
+        'QModal',
+        'QModalLayout',
+        'QSearch',
+        'QField',
+        'QAutocomplete',
+        'QRadio',
+        'QChip',
+        'QUploader',
+        'QCheckbox'
       ],
       directives: [
-        'Ripple'
+        'Ripple', 'CloseOverlay'
       ],
       // Quasar plugins
       plugins: [

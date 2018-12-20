@@ -15,18 +15,108 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     loginStatus : false,
-    productDetail: null
+    productDetail: null,
+    address: {
+      address: "Jalan banrg ketong",
+      city: 58,
+      postal_code: "85711",
+      type_home: "Rumah",
+    },
+    modalAddress : false,
+    modalSummary: false,
+    modalPembayaran: false,
+    cart: [],
+    cartDetail: null,
+    width: 0,
+    height: 0,
+    token: null,
+    user : null,
+    page: 'home',
+    opened: true,
+    showText: false,
+    ended: false
   },
   mutations: {
+    setOpened (state, payload) {
+      state.opened = payload
+    },
+    setShowText (state, payload) {
+      state.showText = payload
+    },
+    setEnded (state, payload) {
+      state.ended = payload
+    },
+    setPage (state, payload) {
+      state.page = payload
+    },
+    setToken (state, payload) {
+      state.token = payload
+    },
+    removeToken (state) {
+      state.token = null
+    },
+    setUser (state, payload) {
+      state.user = payload
+    },
+    removeUser (state) {
+      state.user = null
+    },
     setLoginStatus (state, payload) {
       state.loginStatus = payload
     },
     setProductDetail (state, payload) {
       state.productDetail = payload
+    },
+    setAddress (state, payload) {
+      state.address = payload
+    },
+    setCart (state, payload) {
+      state.cart = payload
+    },
+    addCart (state, payload) {
+      state.cart.push(payload)
+    },
+    removeCart (state, payload) {
+      state.cart.splice(payload, 1)
+    },
+    emptyCart (state) {
+      state.cart = []
+    },
+    setCartDetail (state, payload) {
+      state.cartDetail = payload
+    },
+
+    setModalAddress (state, payload) {
+      state.modalAddress = payload
+    },
+    setModalSummary (state, payload) {
+      state.modalSummary = payload
+    },
+    setModalPembayaran (state, payload) {
+      state.modalPembayaran = payload
+    },
+
+    setWidthHeight(state, payload) {
+      state.width = payload.width
+      state.height = payload.height
     }
 
   },
   actions: {
+    checkingSize ({commit}) {
+      window.addEventListener('resize', (e) => {
+        // this.width = e.target.innerWidth
+        // this.height = e.target.innerHeight
+        commit('setWidthHeight', {width: e.target.innerWidth, height: e.target.innerHeight })
+      })
+      var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+      commit('setWidthHeight', {width: x, height: y })
+    },
     fetchingProductDetail ({commit}, id) {
       axios.get(api+'items/'+id)
         .then(({data})=> {
@@ -38,6 +128,21 @@ export default new Vuex.Store({
           console.log(err)
         })
 
-    }
+    },
+    fetchingCart ({commit}) {
+      let token = localStorage.getItem('token')
+      axios.get(api+'carts', {
+        headers: {
+          token
+        }
+      })
+        .then(({data}) => {
+          console.log(data.carts)
+          commit('setCart', data.carts )
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
   }
 })

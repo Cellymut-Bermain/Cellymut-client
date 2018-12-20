@@ -52,9 +52,27 @@
         height: 2000
       }
     },
+    computed: {
+      token : {
+        get () {
+          return this.$store.state.token
+        }
+      }
+    },
     methods: {
       toDetailProduct () {
-        this.$router.push('/detail/1')
+        if (!this.token) {
+          // this.$router.push('/auth')
+          this.$q.notify({
+            message: "You have to login first!",
+            timeout: 2000,
+            color: 'positive',
+          })
+        }
+        else {
+          this.$router.push('/detail/1')
+        }
+
       },
       checkingSize () {
         window.addEventListener('resize', (e) => {
