@@ -156,8 +156,8 @@
     /*background-size: 100% !important;*/
   /*}*/
   .animate {
-    -webkit-animation: mymove 2s; /* Safari 4.0 - 8.0 */
-    animation: mymove 2s;
+    -webkit-animation: mymove 5s; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s;
   }
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes mymove {

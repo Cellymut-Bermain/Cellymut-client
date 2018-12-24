@@ -114,7 +114,6 @@
 <script>
   import axios from 'axios'
   import {api, storage} from "../../config";
-  const token = localStorage.getItem('token')
   import swal from 'sweetalert'
   export default {
 	data(){
@@ -136,6 +135,13 @@
       checkedNew: false,
 		}
 	},
+    computed: {
+	    token: {
+	      get() {
+	        return this.$store.state.token
+        }
+      }
+    },
   methods: {
     changeCurrent () {
       console.log(this.checked)
@@ -173,7 +179,7 @@
         postal_code: this.postal_code,
       }, {
         headers: {
-          token
+          token: this.token
         }
       })
         .then(({data})=> {
@@ -186,10 +192,10 @@
         })
     },
     getUser () {
-      let token = localStorage.getItem('token')
+      let token = this.token
       axios.get(api+'users/get-one', {
         headers: {
-          token
+          token: this.token
         }
       })
         .then(({data})=> {
@@ -209,7 +215,7 @@
         newPass: this.new_password
       }, {
         headers: {
-          token
+          token: this.token
         }
       })
         .then(({data})=> {
@@ -267,7 +273,7 @@
     fetchingUser () {
       axios.get(api+'users/get-one', {
         headers: {
-          token
+          token: this.token
         }
       })
         .then(({data})=> {

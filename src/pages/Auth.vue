@@ -197,10 +197,20 @@
         let {data} = SignIn
         let {token} = data
         if (token) {
-          localStorage.setItem('token', token)
-          localStorage.setItem('first_name', first_name)
+          // localStorage.setItem('token', token)
+          // localStorage.setItem('first_name', first_name)
+          // this.$router.push('/')
+          // this.$store.commit('setLoginStatus', true)
+          console.log('ini data', data)
+          let user = JSON.stringify(data.user)
+          localStorage.setItem('first_name',user)
+          localStorage.setItem('token', data.token)
+          this.$store.commit('setToken', data.token)
+          this.$store.commit('setUser', data.user)
+          this.$store.dispatch('fetchingCart')
           this.$router.push('/')
           this.$store.commit('setLoginStatus', true)
+          this.$store.commit('setPage', 'home')
         }
         else {
           swal('Username/Password Salah')
@@ -250,8 +260,6 @@
             if (data.status) {
               let user = JSON.stringify(data.user)
               localStorage.setItem('first_name',user)
-
-
               localStorage.setItem('token', data.token)
               this.$store.commit('setToken', data.token)
               this.$store.commit('setUser', data.user)

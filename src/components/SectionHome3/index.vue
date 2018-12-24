@@ -67,6 +67,7 @@
             message: "You have to login first!",
             timeout: 2000,
             color: 'positive',
+            position: 'center'
           })
         }
         else {
