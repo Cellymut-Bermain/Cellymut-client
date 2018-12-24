@@ -31,6 +31,12 @@ export default {
       logo: logo,
     }
   },
+  mounted () {
+    this.$store.dispatch('getUser')
+    if (this.$route.name!=='home'){
+      this.$store.commit('setWidthEnded', true)
+    }
+  }
 }
 </script>
 

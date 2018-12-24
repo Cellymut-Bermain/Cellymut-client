@@ -133,5 +133,13 @@ export default {
     /*font-size: 16px;*/
   /*}*/
   /*}*/
+  #image-transition {
+    width: 130%;
+    height: auto;
+    -webkit-transition: width 1s; /* Safari */
+    -webkit-transition-timing-function: ease-in-out; /* Safari */
+    transition: width 1s;
+    transition-timing-function: ease-in-out;
+  }
 
 </style>

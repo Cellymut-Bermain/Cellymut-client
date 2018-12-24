@@ -23,7 +23,7 @@
               </q-card-title>
               <q-card-main class="color2 font-weight-normal">
                 <p> {{first_name | parsedName}} </p>
-                <p>081285998499</p>
+                <p>{{address.phone_number}}</p>
                 <p>{{address.address}}</p>
                 <p>{{address.city_name}} , {{address.postal_code}}</p>
               </q-card-main>
@@ -270,7 +270,9 @@
             color: temp.Item.color,
             price: temp.Item.item_price,
             cost: this.cost_courier,
-            type_courier: 'pickup store'
+            type_courier: 'pickup store',
+            alamat_pengiriman: `${this.address.address} ${this.address.city} ${this.address.postal_code} ${this.address.type_home}`,
+            phone_number: this.address.phone_number
           }
         }
         else {
@@ -281,7 +283,9 @@
             color: temp.Item.color,
             price: temp.Item.item_price,
             cost: this.cost_courier,
-            type_courier: this.merk_courier +' '+ this.courier_type.service
+            type_courier: this.merk_courier +' '+ this.courier_type.service,
+            alamat_pengiriman: `${this.address.address} ${this.address.city} ${this.address.postal_code} ${this.address.type_home}`,
+            phone_number: this.address.phone_number
           }
         }
         axios.post(api+'transactions/buy/item/'+temp.ItemId, obj, {
@@ -291,9 +295,24 @@
         })
           .then(({data})=> {
             console.log(data)
+            obj.TransactionId = data.id
+            this.addingMessage(obj)
             this.$store.commit('setModalSummary', false)
             this.$store.commit('setModalPembayaran', true)
             this.deleteCartAfterBuy(temp)
+          })
+          .catch(err=> {
+            console.log(err)
+          })
+      },
+      addingMessage (obj) {
+        axios.post(api+`updates/add/user/${obj.UserId}/item/${obj.ItemId}`, {
+          type: 0,
+          TransactionId: obj.TransactionId
+
+        })
+          .then(({data})=> {
+            console.log(data.msg)
           })
           .catch(err=> {
             console.log(err)

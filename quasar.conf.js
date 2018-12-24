@@ -76,7 +76,9 @@ module.exports = function (ctx) {
         'QRadio',
         'QChip',
         'QUploader',
-        'QCheckbox'
+        'QCheckbox',
+        'QCardMedia',
+        'QCardSeparator',
       ],
       directives: [
         'Ripple', 'CloseOverlay'

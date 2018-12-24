@@ -9,7 +9,8 @@
           <source :src="video" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
-        <img v-if="ended" style="width: 100%; height: auto" :src="stopMotion" alt="">
+        <img id="image-transition" class="zoomPic animate" style="width: 130%" v-if="ended && !widthEnded" :src="stopMotion" alt="">
+        <img id="image-transition" class="zoomPic" style="width: 100%" v-if="ended && widthEnded" :src="stopMotion" alt="">
       </div>
 
       <div  class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal self-center" >
@@ -77,6 +78,11 @@
       }
     },
     computed: {
+      widthEnded: {
+        get () {
+          return this.$store.state.widthEnded
+        }
+      },
       opened: {
         get () {
           return this.$store.state.opened
@@ -97,6 +103,13 @@
       }
     },
     methods: {
+      clickJa () {
+        console.log('waduh gak jalan patrick')
+        console.log('ini class',$('.zoomPic'))
+        console.log('ini id',$('#image-transition'))
+        let temp = document.getElementById('image-transition')
+        console.log('ini temp', temp)
+      },
       checkingSize () {
         window.addEventListener('resize', (e) => {
           this.width = e.target.innerWidth
@@ -127,5 +140,34 @@
   }
   .video-class {
     height: auto !important;
+    -webkit-transition: width 1s; /* Safari */
+    -webkit-transition-timing-function: ease-in-out; /* Safari */
+    transition: width 1s;
+    transition-timing-function: ease-in-out;
+  }
+  .zoomPic {
+    height: auto;
+    -webkit-transition: width 1s; /* Safari */
+    -webkit-transition-timing-function: ease-in-out; /* Safari */
+    transition: width 1s;
+    transition-timing-function: ease-in-out;
+  }
+  /*.loaded .zoomPic{*/
+    /*background-size: 100% !important;*/
+  /*}*/
+  .animate {
+    -webkit-animation: mymove 2s; /* Safari 4.0 - 8.0 */
+    animation: mymove 2s;
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes mymove {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Standard syntax */
+  @keyframes mymove {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
   }
 </style>

@@ -6,17 +6,32 @@
         <q-breadcrumbs-el label="Pesanan Saya" />
       </q-breadcrumbs>
       <div style="margin-top: 12px; width:100%" class="row wrap justify-left items-start">
-        <div class="row wrap justify-left items-center" style="width: 100%">
-          <div >
+        <div class="row wrap justify-left items-center justify-mobile-bca-center" style="width: 100%">
+          <div  v-if="width>992">
             <p style="margin-bottom: 0" class="font-weight-normal font-size-paragraph-21">Butuh bantuan?</p>
           </div>
-          <div class="col-lg-3" >
+          <div v-if="width>992" class="col-lg-3" >
             <div class="justify-left row wrap">
               <img @click="openSosial('https://api.whatsapp.com/send?phone=081703339038&text=&source=&data=')" style="width: 40px; height: 40px; cursor: pointer" src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG1.png" alt="">
             </div>
           </div>
-          <div class="col-lg-12">
-            <p style="margin-bottom: 0" class="font-weight-normal font-size-paragraph-21">BCA : 783 019 8703. a.n Mariana Trinaga BCA </p>
+          <br>
+          <div class="col-xs-12" v-if="width<=992">
+            <p style="margin-bottom: 0" class="font-weight-normal font-size-paragraph-21 align-center">Butuh bantuan?</p>
+          </div>
+          <div v-if="width<=992" class="col-xs-12">
+            <div class="justify-center row wrap">
+              <img @click="openSosial('https://api.whatsapp.com/send?phone=081703339038&text=&source=&data=')" style="width: 40px; height: 40px; cursor: pointer" src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG1.png" alt="">
+            </div>
+          </div>
+          <div  class="col-lg-12" >
+            <div v-if="width>992" class="justify-start row wrap">
+              <img  style="width: 100px; height: 70px" :src="bca" alt="">
+            </div>
+            <p style="margin-bottom: 0" class="font-weight-normal font-size-paragraph-21">BCA : 783 019 8703 </p>
+            <p style="margin-bottom: 1rem; margin-top: 1rem" class="font-weight-normal font-size-paragraph-21">
+            AN :Mariana Trinaga
+          </p>
           </div>
           <br><br>
         </div>
@@ -29,6 +44,8 @@
   import image from '../../assets/assets/pilihan-01.png'
   import Table from './Table'
   import TableMobile from './TablePesananMobile'
+  import {bca} from '../../config/images'
+  console.log(bca)
   export default {
     components: {
       Table, TableMobile
@@ -39,8 +56,9 @@
           sortBy: null, // String, column "name" property value
           descending: false,
           page: 1,
-          rowsPerPage: 100 // current rows per page being displayed
+          rowsPerPage: 100, // current rows per page being displayed,
         },
+        bca,
         items: [
           {
             item_name : 'Monopoly Cellymut',
@@ -96,6 +114,9 @@
     .justify-mobile-keranjang {
       justify-content: center !important;
       margin-left: 20px !important;
+    }
+    .justify-mobile-bca-center {
+      justify-content: center !important;
     }
   }
 </style>

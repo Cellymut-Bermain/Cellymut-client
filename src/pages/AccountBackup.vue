@@ -4,21 +4,59 @@
       <div v-if="width>991" class="col-2">
         <h2 class="akun-saya color2">Akun Saya</h2>
         <div class="nav-saya">
+
           <div v-for="(button, index) in buttons" :key="index">
-            <q-btn v-if="page===button.name_route" no-wrap class="color2 header-left" @click="toUrl(button.name_route)"  :to="button.url" flat>
-              {{button.name}}
-            </q-btn>
-            <q-btn v-if="page!==button.name_route" no-wrap class="color2"  @click="toUrl(button.name_route)"  :to="button.url" flat>
-              {{button.name}}
-            </q-btn>
+            <!--<q-btn v-if="page===button.name_route" no-wrap class="color2 header-left" @click="toUrl(button.name_route)"  :to="button.url" flat>-->
+              <!--{{button.name}}-->
+            <!--</q-btn>-->
+            <!--<q-btn v-if="page!==button.name_route" no-wrap class="color2"  @click="toUrl(button.name_route)"  :to="button.url" flat>-->
+              <!--{{button.name}}-->
+            <!--</q-btn>-->
+            <div style="width: 100%">
+              <div v-if="page===button.name_route" class="wrapper-nav header-left" @click="toUrl({value: button.name_route, url: button.url })">
+                <a  class="color2 link-nav" @click="toUrl({value: button.name_route, url: button.url })">
+                  {{button.name}}
+                </a>
+              </div>
+            </div>
+            <div style="width: 100%">
+              <div v-if="page!==button.name_route" class="wrapper-nav" @click="toUrl({value: button.name_route, url: button.url })">
+                <a class="color2 link-nav" @click="toUrl({value: button.name_route, url: button.url })">
+                  {{button.name}}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div >
+            <div style="width: 100%">
+              <div v-if="page==='Updates'" class="wrapper-nav header-left" @click="toUrl({value: 'Updates', url:'Updates' })">
+                <a  class="color2 link-nav" @click="toUrl({value: button.name_route, url: button.url })">
+                  Updates ({{unreadUpdates.length}})
+                </a>
+              </div>
+            </div>
+            <div style="width: 100%">
+              <div v-if="page!=='Updates'" class="wrapper-nav" @click="toUrl({value: 'Updates', url: '/account/inbox' })">
+                <a class="color2 link-nav" @click="toUrl({value: 'Updates', url: 'Updates' })">
+                  Updates
+                </a>
+              </div>
+            </div>
           </div>
           <br><br>
           <q-btn flat @click="logout"  color="red" >keluar</q-btn>
         </div>
       </div>
-      <div class="col-lg-8 col-md-12 margin-left-4-rem akun-saya "  >
-        <div class="row wrap justify-center items-start padding-mobile-setting">
+      <div v-if="page!=='account-order'" class="col-lg-8 col-md-12 margin-left-4-rem akun-saya "   >
+        <div  class="row wrap justify-center items-start padding-mobile-setting">
         <router-view/>
+        </div>
+      </div>
+
+      <div v-if="page=='account-order'" class="col-lg-8 col-md-12 margin-left-4-rem akun-saya"  style="margin-left: 20px"   >
+        <div class="row wrap justify-center items-start padding-mobile-setting">
+          <router-view/>
         </div>
       </div>
     </div>
@@ -36,15 +74,19 @@
     mounted () {
       this.checkingSize()
       this.checkingToken(token)
+      this.$store.dispatch('fetchingUnreadUpdates')
+      console.log('ini routenya', this.$route.name)
     },
     computed: {
       ...mapState([
-        'page'
+        'page', 'unreadUpdates'
       ]),
     },
     methods: {
-      toUrl (value){
+      toUrl ({value, url}){
         this.$store.commit('setPage', value)
+        console.log(value, url)
+        this.$router.push(url)
       },
       checkingSize () {
         window.addEventListener('resize', (e) => {
@@ -141,12 +183,29 @@
     border-bottom: 3px solid #8c78de;
     margin-bottom: 2px;
   }
+  .link-nav {
+    cursor: pointer;
+  }
+  .link-nav:hover {
+  }
+  .wrapper-nav {
+    margin-left: 16px;
+    width: 80%;
+    background-color: white;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    cursor: pointer;
+  }
+  .wrapper-nav:hover {
+    background-color: whitesmoke;
+  }
+
   @media only screen and (max-width: 992px) {
     .margin-navbar-top-mobile {
       margin-top: 32px;
     }
     .margin-left-4-rem {
-      margin-left: 0 !important;
+      margin-left: 1.2rem !important;
     }
     .padding-mobile-setting {
       padding: 2rem;

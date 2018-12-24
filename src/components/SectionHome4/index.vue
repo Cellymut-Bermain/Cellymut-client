@@ -48,7 +48,8 @@
 <!--</template>-->
 
 <template>
-  <div class="section-4 ">
+  <div >
+  <div class="section-4-width ">
     <div class="row justify-center">
       <h2 class="font-size-header-48 font-weight-normal color-judul">PRESS</h2>
     </div>
@@ -56,7 +57,7 @@
       <div class="col-lg-6 col-md-12">
         <img style="width: 100%;height: auto; padding: 36px;" :src="press" alt="">
       </div>
-      <div style="padding: 36px" class="col-lg-6 col-md-12">
+      <div class="col-lg-6 col-md-12">
         <q-card flat >
           <q-card-title class="color-press">
             <h2 class="font-size-36 font-weight-normal">
@@ -79,6 +80,7 @@
     </div>
 
   </div>
+  </div>
 </template>
 
 <script>
@@ -97,15 +99,10 @@
 </script>
 
 <style>
-  .section-4 {
+  .section-4-width {
     background-color: #f7e8e7;
     width: 100%;
     height: auto;
-  }
-  .size-image-review {
-    padding-top: 64px;
-    width: 70%;
-    height: 70%;
   }
   .color-judul {
     color: #766a77;
@@ -124,8 +121,8 @@
     color: lightseagreen;
   }
   @media only screen and (max-width: 991px) {
-    .section-4 {
-      background-image: url("../../assets/assets/bg-selimut.jpg");
+    .section-4-width {
+      background-color: #f7e8e7;
       width: 100%;
       height: auto;
     }

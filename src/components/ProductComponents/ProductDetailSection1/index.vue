@@ -134,28 +134,29 @@ export default {
       if (!this.size || !this.color_pick || !this.name)  {
         return swal('Mohon pilih lengkapi field yang tersedia!!')
       }
-      try {
-        let {data} = await axios.get(api+'items/size/color', {
-          headers: {
-            size : this.size,
-            color: this.color_pick,
-          }
-        })
-        console.log(data.item)
-        let addToCart = await axios.post(api+'carts/add/'+data.item.id, {
-          name: this.name
-        }, {
-          headers: {
-            token
-          }
-        })
-        console.log(addToCart.data)
-        this.$store.commit('addCart', data)
-        this.swalAddCart()
-      }
-      catch (e) {
-        console.log(e)
-      }
+      console.log(this.color_pick)
+      // try {
+      //   let {data} = await axios.get(api+'items/size/color', {
+      //     headers: {
+      //       size : this.size,
+      //       color: this.color_pick,
+      //     }
+      //   })
+      //   console.log(data.item)
+      //   let addToCart = await axios.post(api+'carts/add/'+data.item.id, {
+      //     name: this.name
+      //   }, {
+      //     headers: {
+      //       token
+      //     }
+      //   })
+      //   console.log(addToCart.data)
+      //   this.$store.commit('addCart', data)
+      //   this.swalAddCart()
+      // }
+      // catch (e) {
+      //   console.log(e)
+      // }
     },
     swalAddCart () {
       swal({
@@ -195,6 +196,7 @@ export default {
           }
           this.colors = forChanging
           console.log(this.colors,'apa nih isinya')
+          console.log(temp)
         })
         .catch(err=> {
           console.log(err)

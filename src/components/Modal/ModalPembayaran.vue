@@ -1,5 +1,5 @@
 <template>
-  <q-modal style="width: 100%" v-model="modalPembayaran" ref="modalRef">
+  <q-modal @hide="toPesanan" style="width: 100%" v-model="modalPembayaran" ref="modalRef">
     <q-modal-layout style="width: 100%">
       <q-toolbar slot="header">
         <q-toolbar-title>
@@ -48,6 +48,11 @@ export default {
       set (value) {
         this.$store.commit('setModalPembayaran', value)
       }
+    }
+  },
+  methods: {
+    toPesanan () {
+      this.$router.push('/account/order')
     }
   }
 }

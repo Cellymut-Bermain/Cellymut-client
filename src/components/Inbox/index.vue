@@ -7,39 +7,88 @@
           </q-breadcrumbs>
 
        <q-list>
-  <q-collapsible group="somegroup"  multiline icon="star store" label="Cellymut">
-    <div class="column items-center">
-      <img :src="logo" alt="">
-      <p class="text-auth kartu">Update Kartu Tantangan</p>
-      <q-btn class="btn-download">download</q-btn>
-    </div>
-  </q-collapsible>
-  <q-collapsible group="somegroup" icon="star store"   label="Cellymut">
-      <div class="column items-center">
-      <img :src="logo" alt="">
-      <p class="text-auth kartu">Update Kartu Tantangan</p>
-      <q-btn class="btn-download">download</q-btn>
-    </div>
-  </q-collapsible>
-  <q-collapsible group="somegroup" icon="star store" label-lines="asdsad"  label="Cellymut">
-      <div class="column items-center">
-      <img :src="logo" alt="">
-      <p class="text-auth kartu">Update Kartu Tantangan</p>
-      <q-btn class="btn-download">download</q-btn>
-    </div>
+  <q-collapsible @show="readStatus(index)"  v-for="(update, index) in updates" :key="index" group="somegroup"  multiline icon="star store" label="Cellymut Update" :sublabel="status[update.status_read]">
+    <q-card>
+      <q-card-media>
+        <div class="row wrap justify-center">
+        <img class="align-center" style="width: 40%; height: 40%" :src="logo">
+        </div>
+      </q-card-media>
+      <q-card-separator />
+      <q-card-main>
+        <div class="row wrap justify-center">
+          <p class="text-auth font-size-paragraph-24" v-if="update.type===0"> Segera Melakukan pembayaran untuk order id : LX-{{update.TransactionId.slice(0,8).toUpperCase()}}</p>
+          <p class="text-auth font-size-paragraph-24" v-if="update.type===1"> Pembayaran untuk Orderan anda dengan id: LX-{{update.TransactionId.slice(0,8).toUpperCase()}} berhasil di konfirmasi </p>
+          <p class="text-auth font-size-paragraph-24" v-if="update.type===2"> Orderan anda dengan id: LX-{{update.TransactionId.slice(0,8).toUpperCase()}} Sedang dikirim  </p>
+          <p class="text-auth font-size-paragraph-24" v-if="update.type===3"> Orderan anda dengan id: LX-{{update.TransactionId.slice(0,8).toUpperCase()}} Sudah sampao </p>
+          <p class="text-auth font-size-paragraph-24" v-if="update.type===-1">Orderan anda dengan id: LX-{{update.TransactionId.slice(0,8).toUpperCase()}} Ditolak, mohon hubungin Admin via Whatsapp</p>
+          <p class="text-auth font-size-paragraph-24" v-if="update.type===4">Update Kartu Tantangan</p>
+        </div>
+      </q-card-main>
+      <q-card-actions align="center" v-if="update.type===4">
+        <q-btn text-color="white" class="btn-download">Download</q-btn>
+      </q-card-actions>
+    </q-card>
   </q-collapsible>
 </q-list>
 
     </article>
 </template>
 <script>
-import {logo} from '../../config/images.js'
+import logo from '../../assets/assets/logofix_.png'
+import {mapState} from 'vuex'
+import axios from 'axios'
+import {api} from "../../config";
+
 export default {
-    data(){
-        return{
-            logo
-        }
+  data(){
+    return{
+      logo,
+      status: ['unread', 'read']
     }
+  },
+  computed: {
+    ...mapState([
+      'updates', 'user',
+    ])
+  },
+  methods: {
+    fetchingUpdates () {
+      let token = localStorage.getItem('token')
+      console.log('>>>>>>>>>>>>>',this.user)
+      axios.get(api+'updates/user/all', {
+        headers: {
+          token
+        }
+      })
+        .then(({data})=> {
+          console.log(data)
+          this.$store.commit('setUpdate', data.updates)
+        })
+        .catch(err=> {
+          console.log(err)
+        })
+    },
+    readStatus (index) {
+      let item = this.updates
+      item[index].status_read = 1
+      console.log(item[index])
+      this.$store.commit('setUpdate', item)
+      axios.put(api+'updates/read/'+item[index].id)
+        .then(({data})=> {
+          console.log(data)
+          this.$store.dispatch('fetchingUnreadUpdates')
+        })
+        .catch(err=> {
+          console.log(err)
+        })
+    }
+  },
+  mounted () {
+    this.fetchingUpdates()
+  }
+
+
 }
 </script>
 
@@ -70,18 +119,6 @@ export default {
 .page{
 	width: 100%;
 	height: 100%;
-}
-.kartu{
-    width: 349px;
-    height: 37px;
-    font-size: 32px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.19;
-    letter-spacing: normal;
-    text-align: left;
-
 }
 .btn-download{
      width: 174px;

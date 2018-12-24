@@ -17,7 +17,7 @@ const routes = [
           { path: '/account/order', name: 'account-order', component: () => import('components/AccountSectionPesanan') },
           { path: '/account/keranjang', name: 'account-keranjang', component: () => import('components/AccountSectionKeranjang') },
           { path: '/account/setting', name: 'account-setting', component: () => import('components/AccountSettings') },
-          { path: '/account/inbox', component: () => import('components/Inbox') }
+          { path: '/account/inbox', name:'Updates', component: () => import('components/Inbox') }
         ]}
     ]
   },

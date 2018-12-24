@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import {imageProduct1, gameTutorial2} from '../../../config/images.js'
+import {imageProduct1, gameTutorial2, gambarBaru} from '../../../config/images.js'
 export default {
 	data(){
 		return{
-			gameTutorial2
+			gameTutorial2: gambarBaru
 		}
 	},
   methods: {

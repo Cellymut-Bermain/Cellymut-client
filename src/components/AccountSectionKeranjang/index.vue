@@ -64,7 +64,7 @@
   @media only screen and (max-width: 420px) {
     .justify-mobile-keranjang {
       justify-content: center !important;
-      margin-left: 20px !important;
+      /*margin-left: 20px !important;*/
     }
   }
 </style>

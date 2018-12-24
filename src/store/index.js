@@ -17,16 +17,19 @@ export default new Vuex.Store({
     loginStatus : false,
     productDetail: null,
     address: {
-      address: "Jalan banrg ketong",
-      city: 58,
-      postal_code: "85711",
-      type_home: "Rumah",
+      address: "",
+      city: 0,
+      postal_code: '',
+      type_home: "",
+      phone_number: ''
     },
     modalAddress : false,
     modalSummary: false,
     modalPembayaran: false,
     cart: [],
     cartDetail: null,
+    updates: [],
+    unreadUpdates: [],
     width: 0,
     height: 0,
     token: null,
@@ -34,9 +37,19 @@ export default new Vuex.Store({
     page: 'home',
     opened: true,
     showText: false,
-    ended: false
+    ended: false,
+    widthEnded : false
   },
   mutations: {
+    setUpdate (state, payload) {
+      state.updates = payload
+    },
+    setUnreadUpdate (state, payload) {
+      state.unreadUpdates = payload
+    },
+    setWidthEnded (state, payload) {
+      state.widthEnded = payload
+    },
     setOpened (state, payload) {
       state.opened = payload
     },
@@ -103,6 +116,21 @@ export default new Vuex.Store({
 
   },
   actions: {
+
+    fetchingUnreadUpdates ({commit}) {
+      let token = localStorage.getItem('token')
+      axios.get(api+'updates/user/all/unread', {
+        headers: {
+          token
+        }
+      })
+        .then(({data})=> {
+          commit('setUnreadUpdate', data.unreads)
+        })
+        .catch(err=> {
+          console.log(err)
+        })
+    },
     checkingSize ({commit}) {
       window.addEventListener('resize', (e) => {
         // this.width = e.target.innerWidth
@@ -141,6 +169,21 @@ export default new Vuex.Store({
           commit('setCart', data.carts )
         })
         .catch(err => {
+          console.log(err)
+        })
+    },
+    getUser ({commit}) {
+      let token = localStorage.getItem('token')
+      axios.get(api+'users/get-one', {
+        headers: {
+          token
+        }
+      })
+        .then(({data})=> {
+          // this.$store.state.user = data.user
+          commit('setUser', data.user)
+        })
+        .catch(err=> {
           console.log(err)
         })
     },

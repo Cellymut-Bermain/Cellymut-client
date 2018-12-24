@@ -161,6 +161,7 @@
 	    this.editStatus = value
     },
     saveProfile () {
+      console.log(this.city)
       axios.put(api+'users/update/user', {
         email: this.email,
         phone_number: this.phone_number,
@@ -177,7 +178,22 @@
       })
         .then(({data})=> {
           console.log(data)
+          this.getUser()
           this.editStatus = false
+        })
+        .catch(err=> {
+          console.log(err)
+        })
+    },
+    getUser () {
+      let token = localStorage.getItem('token')
+      axios.get(api+'users/get-one', {
+        headers: {
+          token
+        }
+      })
+        .then(({data})=> {
+          this.$store.commit('setUser', data.user)
         })
         .catch(err=> {
           console.log(err)

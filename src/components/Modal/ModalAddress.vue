@@ -47,11 +47,17 @@
                 <input v-model="postal_code" class="input-class" type="text" placeholder="Postal Code">
               </q-field>
             </div>
-            <div class="col-lg-12 align-right">
-              <q-btn @click="addingAddress" style="border-radius: 20px; background-color: #a7b5d8;" text-color="white" no-caps>
-                Tambah Alamat
-              </q-btn>
-            </div>
+            <!--<div class="col-lg-12 align-right">-->
+              <q-card-actions align="end">
+                <div class="row wrap items-center">
+                <a class="alamat-now" @click="alamatProfile" > Gunakan Alamat Profile </a>
+                </div>
+                <q-btn  @click="addingAddress" style="border-radius: 20px; background-color: #a7b5d8;" text-color="white" no-caps>
+                  Tambah Alamat
+                </q-btn>
+              </q-card-actions>
+
+            <!--</div>-->
           </div>
         </div>
       </div>
@@ -84,6 +90,11 @@
           this.$store.commit('setModalAddress', value)
         }
       },
+      user: {
+        get () {
+          return this.$store.state.user
+        }
+      }
     },
     data () {
       return {
@@ -124,6 +135,19 @@
       valueChange(value) {
         this.postal_code = value.postal_code
         console.log(value)
+      },
+      alamatProfile () {
+        if (!this.user.address || !this.user.type_home || !this.user.provinsi || !this.user.phone_number || !this.user.country ) {
+          return swal('Mohon maaf Data Profile anda belum lengkap!', 'Mohon untuk mengisi data profile anda di pengaturan akun.', 'warning')
+        }
+        console.log(this.address)
+        this.address = this.user.address
+        this.type_home = this.user.type_home
+        this.postal_code = this.postal_code
+        this.phone_number = this.user.phone_number
+        // let address = {}
+        // this.address.address = `${this.user.address} ${this.user.city} ${this.user.provinsi} ${this.user.country}`
+        // this.address.phone_number = this.user.phone_number
       }
     },
     mounted () {
@@ -137,6 +161,15 @@
     border-radius: 8px !important;
     background-color: #ffffff;
     width: 300px !important;
+
+  }
+  .alamat-now {
+    color: cornflowerblue;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  .alamat-now:hover {
+    color: darkslateblue;
   }
   @media only screen and(max-width: 480px) {
     .input-class {

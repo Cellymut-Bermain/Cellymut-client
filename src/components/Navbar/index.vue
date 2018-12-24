@@ -4,36 +4,46 @@
       <q-toolbar-title>
       </q-toolbar-title>
 
-      <q-btn  v-if="width>991 && this.page=='home'" no-ripple flat to="/" class="header-bottom" >
-        Home
-      </q-btn>
-      <q-btn @click="pindahPage('home')" v-if="width>991 && this.page!=='home'" no-ripple flat to="/"  >
-        Home
-      </q-btn>
+      <!--<q-btn  v-if="width>991 && this.page=='home'" no-ripple flat to="/" class="header-bottom" >-->
+        <!--Home-->
+      <!--</q-btn>-->
+      <!--<q-btn @click="pindahPage('home')" v-if="width>991 && this.page!=='home'" no-ripple flat to="/"  >-->
+        <!--Home-->
+      <!--</q-btn>-->
+      <a to="/"  @click="pindahPage('home')" v-if="width>991 && this.page=='home'" class="link-page header-bottom"> Home </a>
+      <a to="/" @click="pindahPage('home')" v-if="width>991 && this.page!=='home'" class="link-page"> Home </a>
 
 
-      <q-btn @click="pindahPage('product')" v-if="width>991 && this.page=='product'" no-ripple flat to="/product" class="header-bottom" >
-        Tutorial
-      </q-btn>
-      <q-btn @click="pindahPage('product')" v-if="width>991 && this.page!=='product'" no-ripple flat to="/product"  >
-        Tutorial
-      </q-btn>
+
+      <!--<q-btn @click="pindahPage('product')" v-if="width>991 && this.page=='product'" no-ripple flat to="/product" class="header-bottom" >-->
+        <!--Tutorial-->
+      <!--</q-btn>-->
+      <!--<q-btn @click="pindahPage('product')" v-if="width>991 && this.page!=='product'" no-ripple flat to="/product"  >-->
+        <!--Tutorial-->
+      <!--</q-btn>-->
+      <a to="/product"  @click="pindahPage('product')" v-if="width>991 && this.page=='product'" class="link-page header-bottom"> Tutorial </a>
+      <a to="/product"  @click="pindahPage('product')" v-if="width>991 && this.page!=='product'" class="link-page"> Tutorial </a>
 
 
-      <q-btn @click="pindahPage('about')" v-if="width>991 && this.page=='about'" no-ripple flat to="/about" class="header-bottom" >
-        Tentang Kami
-      </q-btn>
-      <q-btn @click="pindahPage('about')" v-if="width>991 && this.page!=='about'" no-ripple flat to="/about" >
-        Tentang Kami
-      </q-btn>
+      <!--<q-btn @click="pindahPage('about')" v-if="width>991 && this.page=='about'" no-ripple flat to="/about" class="header-bottom" >-->
+        <!--Tentang Kami-->
+      <!--</q-btn>-->
+      <!--<q-btn @click="pindahPage('about')" v-if="width>991 && this.page!=='about'" no-ripple flat to="/about" >-->
+        <!--Tentang Kami-->
+      <!--</q-btn>-->
+      <a  @click="pindahPage('about')" v-if="width>991 && this.page=='about'" class="link-page header-bottom"> Tentang Kami </a>
+      <a  @click="pindahPage('about')" v-if="width>991 && this.page!=='about'" class="link-page"> Tentang Kami </a>
 
 
-      <q-btn @click="pindahPage('askme')" v-if="width>991 && this.page=='askme'" no-ripple flat to="/askme" class="header-bottom" >
-        Tanya Kami
-      </q-btn>
-      <q-btn @click="pindahPage('askme')" v-if="width>991 && this.page!=='askme'" no-ripple flat to="/askme"  >
-        Tanya Kami
-      </q-btn>
+      <!--<q-btn @click="pindahPage('askme')" v-if="width>991 && this.page=='askme'" no-ripple flat to="/askme" class="header-bottom" >-->
+        <!--Tanya Kami-->
+      <!--</q-btn>-->
+      <!--<q-btn @click="pindahPage('askme')" v-if="width>991 && this.page!=='askme'" no-ripple flat to="/askme"  >-->
+        <!--Tanya Kami-->
+      <!--</q-btn>-->
+      <a  @click="pindahPage('askme')" v-if="width>991 && this.page=='askme'" class="link-page header-bottom"> Tanya Kami </a>
+      <a  @click="pindahPage('askme')" v-if="width>991 && this.page!=='askme'" class="link-page"> Tanya Kami </a>
+
 
       <q-btn @click="pindahPage('auth')" v-if="width>991 && !loginStatus && this.page=='auth'" no-ripple flat to="/auth" class="header-bottom"  >
         Masuk
@@ -46,8 +56,8 @@
         <!--Keluar-->
       <!--</q-btn>-->
       <q-btn  no-ripple flat v-if="width<=991" icon="menu" @click="openNav"></q-btn>
-      <p  v-if="width>991 && loginStatus && user && this.page=='account'" style="margin: auto;" class="header-bottom"> Hi <a class="first_name" @click="toAccount">{{user.first_name}},</a></p>
-      <p  v-if="width>991 && loginStatus && user && this.page!=='account'" style="margin: auto;"> Hi <a class="first_name " @click="toAccount">{{user.first_name}},</a></p>
+      <p  v-if="width>991 && loginStatus && user && this.page=='account-setting'" style="margin: auto;" class="header-bottom"> Hi <a class="first_name" @click="toAccount">{{user.first_name}},</a></p>
+      <p  v-if="width>991 && loginStatus && user && this.page!=='account-setting'" style="margin: auto;"> Hi <a class="first_name " @click="toAccount">{{user.first_name}},</a></p>
       <p  v-if="width>991 && loginStatus && !user" style="margin: auto;"> Hi <a class="first_name" @click="toAccount">User,</a></p>
       <q-btn flat icon="shopping_cart" @click="shoppingButton" round >
         <q-chip v-if="cart.length" floating color="red">{{cart.length}}</q-chip>
@@ -93,7 +103,7 @@
         })
       },
       toAccount () {
-        this.$store.commit('setPage', 'account')
+        this.$store.commit('setPage', 'account-setting')
         this.$router.push('/account/setting')
       },
       shoppingButton () {
@@ -171,6 +181,10 @@
       pindahPage (value) {
         this.$store.commit('setPage', value)
         console.log('page', this.page)
+        if (value=='home') {
+         return this.$router.push(`/`)
+        }
+        this.$router.push(`/${value}`)
       }
 
     },
@@ -195,6 +209,15 @@
 </script>
 
 <style scoped>
+  .link-page {
+    color: #6e819e;
+    text-decoration: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .link-page:hover {
+    cursor: pointer;
+  }
 .barName{
   text-decoration: none;
 }
@@ -213,6 +236,11 @@
   }
   .logo-margin {
     margin-left: 2rem;
+  }
+  @media only screen and (max-width: 992px) {
+    .logo-margin {
+      margin-left: 0px !important;
+    }
   }
 
 

@@ -9,13 +9,13 @@
           <q-icon />
         </q-item-side>
       </template>
-      <a class="align-left border-top" href="#" @click="toPage('/account/setting')">Profile</a>
+      <a class="align-left border-top" href="#" @click="toPage('/account/setting')">Pengaturan Akun</a>
       <a class="align-left border-top" href="#" @click="toPage('/account/keranjang')">Keranjang Belanja</a>
-      <a class="align-left border-top" href="#" @click="toPage('/account/order')">Pesanan Saya</a>
-      <a class="align-left border-top border-bottom" href="#" @click="toPage('/account/inbox')">Updates</a>
+      <a class="align-left border-top border-bottom" href="#" @click="toPage('/account/order')">Pesanan Saya</a>
+      <!--<a class="align-left border-top border-bottom" href="#" @click="toPage('/account/inbox')">Updates</a>-->
     </q-collapsible>
     <a class="align-left" href="#" @click="toPage('/')">Home</a>
-    <a class="align-left" href="#" @click="toPage('/product')">Product</a>
+    <a class="align-left" href="#" @click="toPage('/product')">Tutorial</a>
     <a class="align-left" href="#" @click="toPage('/about')">Tentang Kami</a>
     <a class="align-left" href="#" @click="toPage('/askme')">Tanya Kami</a>
   </div>

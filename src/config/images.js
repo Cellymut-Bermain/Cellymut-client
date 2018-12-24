@@ -8,6 +8,8 @@ import pilihan2 from '../assets/assets/pilihan-02.png'
 import pilihan3 from '../assets/assets/pilihan-03.png'
 import facebook from '../assets/assets/facebook.png'
 import instagram from '../assets/assets/instagram.png'
+import gambarBaru from '../assets/assets/gambar-baru.jpeg'
+import bca from '../assets/assets/bca_gambar.jpeg'
 
 
 import blush from '../assets/color/blush.jpg'
@@ -33,6 +35,8 @@ import productUlar from '../assets/assets/product-ular.jpg'
 
 // import stopMotion from '../assets/assets/stop-motion.png'
 export {
+  bca,
+  gambarBaru,
   logo,
   stopMotion,
   ularTangga,
