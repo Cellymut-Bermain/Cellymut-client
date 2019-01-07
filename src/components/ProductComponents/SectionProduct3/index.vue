@@ -9,20 +9,26 @@
 				<div class="column items-start right">
 					<div>
 						<p class="T1">Tutorial 1</p> 
-						<p class="description">Pemain melempar dadu secara bergiliran, angka yang terbanyak, memainkan permainan
-							terlebih dahulu</p>
+						<p class="description">
+              Pemain (anak-anak dan/atau orang tua) melempar dadu bergantian, angka yang
+              terbanyak dapat memainkan permainan terlebih dahulu.
+            </p>
 					</div>
 					<div>
 						<p class="T1">Tutorial 2</p>
-						<p class="description">Pion dijalankan bergiliran sesuai dengan dadu ke kotak-kotak menurut arah panah</p>
+						<p class="description">
+              Permainan dimulai dari kotak angka 1
+            </p>
 					</div>
 					<div>
 						<p class="T1">Tutorial 3</p>
-						<p class="description">Dimanapun pion berhenti, pemain dapat membeli hak sewa rumah atau bangunan, dan
-						membayar sewa jika rumah atau bangunan tersebut telah dimiliki pemain lain</p>
+						<p class="description">
+              Pion bisa dijalankan sesuai dengan angka hasil dari dadu yang sudah dikocok dan
+              dilempar.
+            </p>
 					</div>
 				</div>
-					<div class="row justify-center">
+					<div class="row justify-center" style="margin-bottom: 20px">
 						<q-btn @click="openPDF" text-color="white" icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut">
               Lihat Selengkapnya
 						</q-btn>
@@ -46,7 +52,7 @@ export default {
 	},
   methods: {
     openPDF () {
-      window.open('../../../assets/assets/Game Tutorial Ular Tangga.pdf')
+      window.open('https://firebasestorage.googleapis.com/v0/b/cellymut-staging.appspot.com/o/assets%2FGame%20Tutorial%20Ular%20Tangga.pdf?alt=media&token=fe3d6647-81bd-468a-9c3f-3a15ecfcdf5b')
     }
   }
 }
@@ -54,12 +60,12 @@ export default {
 <style scoped>
 .image{
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 .section1{
 	padding-top: 30px;
-	background: #cfe1e3;
-	height: 100vh;
+  background-color: #cfe1e3;
+	height: auto;
 }
 .test{
 	padding: 0

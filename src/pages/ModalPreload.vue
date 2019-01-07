@@ -2,7 +2,7 @@
   <q-modal @hide="modalClosed"  v-model="opened" maximized>
     <q-modal-layout style="background-color: #f6bdc8">
       <div class="row wrap items-stretch justify-center">
-          <img class="padding-preload" style="position: absolute; top:30%; bottom: 50%;" :src="preloader" alt="">
+          <img class="padding-preload animate-image animate-spin" style="position: absolute; top:30%; bottom: 50%;" :src="preloader" alt="">
       </div>
     </q-modal-layout>
   </q-modal>
@@ -136,4 +136,40 @@
       width: 70%;
     }
   }
+  .animate-image {
+    animation: image-move 3s;
+    /*animation: spin 3s;*/
+  }
+  .animate-spin {
+    animation: spin 3s;
+  }
+
+  @keyframes image-move {
+    from {
+      top: 100%;
+      width: 0%;
+    }
+    to {
+      top: 30%;
+      width: 37%;
+    }
+  }
+  @keyframes spin {
+    100% {
+    transform:rotate(10deg);
+    }
+    75% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform:rotate(10deg);
+    }
+    25% {
+      transform:rotate(-10deg);
+    }
+    0% {
+      transform:rotate(0deg);
+    }
+  }
+
 </style>

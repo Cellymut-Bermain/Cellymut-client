@@ -2,13 +2,13 @@
   <div style="width: 100%; margin-top: 70px" >
     <q-card flat>
       <q-card-title>
-        <h1 class="align-center font-weight-normal font-size-header-48" style="color: #766a77">Tanya Kami</h1>
+        <h1 class="align-center font-weight-normal font-size-header-48 from-left" style="color: #766a77">Tanya Kami</h1>
       </q-card-title>
 
         <div class="row wrap items-start justify-center">
 
 
-          <div class="col-lg-6 padding-outside-card padding-right-32 padding-top-16 padding-bottom-16 padding-0">
+          <div class="col-lg-6 padding-outside-card padding-right-32 padding-top-16 padding-bottom-16 padding-0 from-bottom">
             <div class="row wrap justify-center">
             <q-card  class="padding-card card-color-1" style="width:100%">
               <q-card-main>
@@ -17,23 +17,24 @@
                   mengembalikan produk saya?
                 </p>
                 <p class="font-size-paragraph-24 align-center font-weight-normal">
-                  Semua pembelian tidak dapat ditukarkan atau dikembalikan
+                  Semua pembelian tidak dapat ditukarkan atau dikembalikan. Jika rusak dalam perjalanan,
+                  garansi 2 minggu setelah pembelian.
                 </p>
               </q-card-main>
             </q-card>
             </div>
           </div>
 
-          <div class="col-lg-6 padding-outside-card padding-left-32 padding-top-16 padding-bottom-16 padding-0">
+          <div class="col-lg-6 padding-outside-card padding-left-32 padding-top-16 padding-bottom-16 padding-0 from-bottom">
             <div class="row wrap justify-center">
               <q-card class="padding-card card-color-2" style="width:100%">
                 <q-card-main>
                   <p class="font-size-subheader-28 align-center">
-                    Bisakah saya menukarkan atau
-                    mengembalikan produk saya?
+                    Bagian mana dari produk yang dapat saya customize?
                   </p>
                   <p class="font-size-paragraph-24 align-center">
-                    Semua pembelian tidak dapat ditukarkan atau dikembalikan
+                    Monopoli: Ukuran, nama dan warna selimut <br>
+                    Ular Tangga: Ukuran, nama, warna selimut dan warna papan
                   </p>
                 </q-card-main>
               </q-card>
@@ -49,11 +50,10 @@
               <q-card class="padding-card card-color-3" style="width:100%">
                 <q-card-main>
                   <p class="font-size-subheader-28 align-center">
-                    Bisakah saya menukarkan atau
-                    mengembalikan produk saya?
+                    Di mana saya dapat menemukan foto-foto rumah tradisional yang akan digunakan dalam permainan Monopoli?
                   </p>
                   <p class="font-size-paragraph-24 align-center">
-                    Semua pembelian tidak dapat ditukarkan atau dikembalikan
+                    Anda dapat mengunduh dan mencetak gambar di sini
                   </p>
                 </q-card-main>
               </q-card>
@@ -66,11 +66,10 @@
               <q-card class="padding-card card-color-4" style="width:100%">
                 <q-card-main>
                   <p class="font-size-subheader-28 align-center">
-                    Bisakah saya menukarkan atau
-                    mengembalikan produk saya?
+                    Bisakah saya mendapatkan kartu tantangan baru untuk permainan Ular Tangga?
                   </p>
                   <p class="font-size-paragraph-24 align-center">
-                    Semua pembelian tidak dapat ditukarkan atau dikembalikan
+                    Ya, satu set kartu tantangan baru untuk permainan Ular Tangga akan tersedia untuk diunduh setiap 6 bulan
                   </p>
                 </q-card-main>
               </q-card>
@@ -133,5 +132,32 @@
     }
 
   }
+
+  .from-bottom {
+    animation: from-bottom 2s;
+  }
+  
+  @keyframes from-bottom {
+    from {
+      margin-top: 100%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  .from-left {
+    animation: from-left 2s;
+  }
+
+  @keyframes from-left {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-bottom: 0%;
+    }
+  }
+
+
 
 </style>

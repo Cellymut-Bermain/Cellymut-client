@@ -17,7 +17,7 @@
             Contact us:
           </q-card-title>
           <q-card-main>
-            <p class="p-margin-bot">Phone: +62 813-1792-9194</p>
+            <p class="p-margin-bot">Phone: +62 822-3103-0330 - Maria / +62 817-0333-9038 - Jane </p>
             <p class="p-margin-bot">Email: selimutbermain@gmail.com</p>
           </q-card-main>
         </q-card>

@@ -17,12 +17,12 @@
       <div class="row wrap justify-center">
         <q-card flat>
           <q-card-title class="text-section3 ">
-            <h1 style="text-align: center" class="font-size-subheader-28 font-weight-normal">ULAR TANGGA CELLYMUT</h1>
+            <h1 style="text-align: center" class="font-size-subheader-28 font-weight-normal text-animate">ULAR TANGGA CELLYMUT</h1>
           </q-card-title>
           <q-card-main align="center" class="text-section3 font-size-subheader-18 font-weight-normal" style="padding-left: 64px; padding-right: 64px">
             <p class="font-weight-normal">
               Included with the purchase of this product: Kartu kesempatan, Kartu petunjuk,
-              Kartu hak sewa rumah, Boneka dadu, Uang monopoli
+              Kartu hak sewa rumah, Boneka dadu besar, Uang monopoli
             </p>
           </q-card-main>
           <q-card-actions align="center" >
@@ -115,5 +115,19 @@
     border-radius: 20px;
     box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.16);
     background-color: #6e819e;
+  }
+
+  .text-animate {
+    animation: text-animate 2s;
+  }
+
+  
+  @keyframes text-animate {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: 0%;
+    }
   }
 </style>

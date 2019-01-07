@@ -30,7 +30,7 @@
 
           <div >
             <div style="width: 100%">
-              <div v-if="page==='Updates'" class="wrapper-nav header-left" @click="toUrl({value: 'Updates', url:'Updates' })">
+              <div v-if="page==='Updates'" class="wrapper-nav header-left" @click="toUrl({value: 'Updates', url:'/account/inbox' })">
                 <a  class="color2 link-nav" @click="toUrl({value: button.name_route, url: button.url })">
                   Updates ({{unreadUpdates.length}})
                 </a>
@@ -39,7 +39,7 @@
             <div style="width: 100%">
               <div v-if="page!=='Updates'" class="wrapper-nav" @click="toUrl({value: 'Updates', url: '/account/inbox' })">
                 <a class="color2 link-nav" @click="toUrl({value: 'Updates', url: 'Updates' })">
-                  Updates
+                  Updates ({{unreadUpdates.length}})
                 </a>
               </div>
             </div>

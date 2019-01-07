@@ -1,10 +1,10 @@
 <template>
 	<q-page class="flex">
-			<SectionProduct1 class="margin-top" />
+			<SectionProduct1 class="margin-top-product" />
 			<!--<SectionProduct2/>-->
 			<SectionProduct3/>
 			<!--<SectionProduct4/>-->
-    <Footer />
+    <Footer  />
 	</q-page>
 
 </template>
@@ -25,4 +25,10 @@ export default {
 	}
 }
 </script>
+
+<style>
+  .margin-top-product {
+    margin-top: -104.7px;
+  }
+</style>
 

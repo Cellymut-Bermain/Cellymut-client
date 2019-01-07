@@ -4,13 +4,13 @@
       <div class="row wrap justify-center">
       <q-card flat>
         <q-card-title class="text-section2 ">
-          <h1 style="text-align: center" class="font-size-subheader-28 font-weight-normal">MONOPOLY CELLYMUT</h1>
+          <h1 style="text-align: center" class="font-size-subheader-28 font-weight-normal">MONOPOLI CELLYMUT</h1>
         </q-card-title>
         <q-card-main align="center" class="text-section2 font-size-subheader-18 font-weight-normal">
           <p class="font-weight-normal">
             Included with the purchase of this product:
             Kartu kesempatan, Kartu petunjuk, Kartu hak sewa rumah,
-            Boneka dadu, Uang monopoli
+            Boneka dadu besar, Uang monopoli
           </p>
         </q-card-main>
         <q-card-actions align="center" >

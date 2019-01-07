@@ -135,28 +135,28 @@ export default {
         return swal('Mohon pilih lengkapi field yang tersedia!!')
       }
       console.log(this.color_pick)
-      // try {
-      //   let {data} = await axios.get(api+'items/size/color', {
-      //     headers: {
-      //       size : this.size,
-      //       color: this.color_pick,
-      //     }
-      //   })
-      //   console.log(data.item)
-      //   let addToCart = await axios.post(api+'carts/add/'+data.item.id, {
-      //     name: this.name
-      //   }, {
-      //     headers: {
-      //       token
-      //     }
-      //   })
-      //   console.log(addToCart.data)
-      //   this.$store.commit('addCart', data)
-      //   this.swalAddCart()
-      // }
-      // catch (e) {
-      //   console.log(e)
-      // }
+      try {
+        let {data} = await axios.get(api+'items/size/color', {
+          headers: {
+            size : this.size,
+            color: this.color_pick,
+          }
+        })
+        console.log(data.item)
+        let addToCart = await axios.post(api+'carts/add/'+data.item.id, {
+          name: this.name
+        }, {
+          headers: {
+            token
+          }
+        })
+        console.log(addToCart.data)
+        this.$store.commit('addCart', data)
+        this.swalAddCart()
+      }
+      catch (e) {
+        console.log(e)
+      }
     },
     swalAddCart () {
       swal({

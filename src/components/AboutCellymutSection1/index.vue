@@ -1,13 +1,13 @@
 <template>
     <div >
       <h1 v-if="width<=991" class="font-size-header-48 text-about-section-1 align-center font-weight-normal">Tentang Cellymut Bermain</h1>
-      <img class="size-image-tentang-kami" :src="tentangKami" alt="">
+      <img class="size-image-tentang-kami opa-image" :src="tentangKami" alt="">
       <div class="row wrap justify-center">
-        <q-card flat class="card-width-max" style="padding-bottom: 64px !important;">
+        <q-card flat class="card-width-max to-bottom" style="padding-bottom: 64px !important;">
           <q-card-title>
             <h1 v-if="width>992" class="font-size-header-48 text-about-section-1 align-center font-weight-normal">Tentang Cellymut Bermain</h1>
           </q-card-title>
-          <q-card-main>
+          <q-card-main >
             <p  class="align-center text-about-section-1 paragraph-about padding-mobile">
               Cellymut Bermain adalah 100% produk Indonesia yang ramah anak, merupakan buah kreasi
               Jane Permana yang memiliki dua anak balita. Seberapapun sibuk hari-harinya sebagai wanita karir,
@@ -125,6 +125,33 @@
     .padding-mobile {
       padding-left: 8px;
       padding-right: 8px;
+    }
+  }
+  .opa-image {
+    animation: image-opa 2s;
+  }
+  .to-bottom {
+    animation: from-bot 2s;
+  }
+
+  @keyframes image-opa {
+    from {
+      opacity: 0;
+      width: 0%;
+      margin-left: 100%;
+    }
+    to {
+      opacity: 1;
+      width: 100%;
+      margin-left: 0%;
+    }
+  }
+  @keyframes from-bot {
+    from {
+      margin-top: 900px;
+    }
+    to {
+      margin-top: 0px;
     }
   }
 

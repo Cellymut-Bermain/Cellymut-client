@@ -1,13 +1,14 @@
 <template>
-    <article class="page">
-        <p class="text-auth title">Acccount Settings</p>
+    <div class="page" style="margin-left: 24px">
+        <!--<p class="text-auth title">Acccount Settings</p>-->
+      <h2 class="font-weight-normal font-size-header-48 align-left text-auth align-keranjang-mobile-center" style="margin-top: 0" >Acccount Settings</h2>
         	<q-breadcrumbs>
             <q-breadcrumbs-el class="account text-account"  label="Account"/>
             <q-breadcrumbs-el label="Inbox"/>
           </q-breadcrumbs>
 
        <q-list>
-  <q-collapsible @show="readStatus(index)"  v-for="(update, index) in updates" :key="index" group="somegroup"  multiline icon="star store" label="Cellymut Update" :sublabel="status[update.status_read]">
+  <q-collapsible @show="readStatus(index)"  v-for="(update, index) in updates" :key="index" group="somegroup"  multiline icon="inbox store" label="Message" :sublabel="status[update.status_read]">
     <q-card>
       <q-card-media>
         <div class="row wrap justify-center">
@@ -32,7 +33,7 @@
   </q-collapsible>
 </q-list>
 
-    </article>
+    </div>
 </template>
 <script>
 import logo from '../../assets/assets/logofix_.png'

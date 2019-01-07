@@ -21,7 +21,7 @@
           </div>
           <div v-if="width<=992" class="col-xs-12">
             <div class="justify-center row wrap">
-              <img @click="openSosial('https://api.whatsapp.com/send?phone=081703339038&text=&source=&data=')" style="width: 40px; height: 40px; cursor: pointer" src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG1.png" alt="">
+              <img @click="openSosial('https://api.whatsapp.com/send?phone=082231030330&text=&source=&data=')" style="width: 40px; height: 40px; cursor: pointer" src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG1.png" alt="">
             </div>
           </div>
           <div  class="col-lg-12" >
@@ -30,7 +30,7 @@
             </div>
             <p style="margin-bottom: 0" class="font-weight-normal font-size-paragraph-21">BCA : 783 019 8703 </p>
             <p style="margin-bottom: 1rem; margin-top: 1rem" class="font-weight-normal font-size-paragraph-21">
-            AN :Mariana Trinaga
+            AN : Mariana Trinaga
           </p>
           </div>
           <br><br>

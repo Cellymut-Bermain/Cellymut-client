@@ -13,7 +13,7 @@
           <div class="middle">
             <div class="row wrap justify-center">
               <h2 class="font-size-header-48 font-weight-normal color-item">
-                Monopoly Cellymut
+                Monopoli Cellymut
               </h2>
             </div>
             <div class="row wrap justify-center">

@@ -1,5 +1,5 @@
 <template>
-    <q-toolbar style="padding-right: 28px !important;"  id="toolbar-nav" :color="color" text-color="navbar">
+    <q-toolbar style="padding-right: 28px !important;"  id="toolbar-nav" :color="color" text-color="navbar" class="animate-navbar">
       <a @click="toHome" href="#"><img class="logo-size logo-margin"  :src="logo" alt="logo celimut" ></a>
       <q-toolbar-title>
       </q-toolbar-title>
@@ -45,10 +45,10 @@
       <a  @click="pindahPage('askme')" v-if="width>991 && this.page!=='askme'" class="link-page"> Tanya Kami </a>
 
 
-      <q-btn @click="pindahPage('auth')" v-if="width>991 && !loginStatus && this.page=='auth'" no-ripple flat to="/auth" class="header-bottom"  >
+      <q-btn @click="pindahPage('auth')" v-if="width>991 && !loginStatus && this.page=='auth'" no-ripple flat to="/auth" class="header-bottom button-link"  >
         Masuk
       </q-btn>
-      <q-btn @click="pindahPage('auth')" v-if="width>991 && !loginStatus && this.page!=='auth'" no-ripple flat to="/auth"  >
+      <q-btn @click="pindahPage('auth')" v-if="width>991 && !loginStatus && this.page!=='auth'" no-ripple flat to="/auth" class="button-link"  >
         Masuk
       </q-btn>
 
@@ -56,10 +56,9 @@
         <!--Keluar-->
       <!--</q-btn>-->
       <q-btn  no-ripple flat v-if="width<=991" icon="menu" @click="openNav"></q-btn>
-      <p  v-if="width>991 && loginStatus && user && this.page=='account-setting'" style="margin: auto;" class="header-bottom"> Hi <a class="first_name" @click="toAccount">{{user.first_name}},</a></p>
-      <p  v-if="width>991 && loginStatus && user && this.page!=='account-setting'" style="margin: auto;"> Hi <a class="first_name " @click="toAccount">{{user.first_name}},</a></p>
-      <p  v-if="width>991 && loginStatus && !user" style="margin: auto;"> Hi <a class="first_name" @click="toAccount">User,</a></p>
-      <q-btn flat icon="shopping_cart" @click="shoppingButton" round >
+      <a @click="toAccount" v-if="width>991 && loginStatus && user && this.page=='account-setting'" style="margin: auto;" class="link-page header-bottom"> Hi <a class="first_name link-page no-padding" @click="toAccount">{{user.first_name}},</a></a>
+      <a @click="toAccount" v-if="width>991 && loginStatus && user && this.page!=='account-setting'" style="margin: auto;" class="link-page"> Hi <a class="first_name link-page no-padding " @click="toAccount">{{user.first_name}},</a></a>
+      <q-btn style="margin-bottom: 8px" flat icon="shopping_cart" @click="shoppingButton" round >
         <q-chip v-if="cart.length" floating color="red">{{cart.length}}</q-chip>
       </q-btn>
     </q-toolbar>
@@ -214,9 +213,14 @@
     text-decoration: none;
     padding-left: 1rem;
     padding-right: 1rem;
+    transition: 0.3s;
+    padding-bottom: 12px;
   }
   .link-page:hover {
     cursor: pointer;
+  }
+  .button-link {
+    margin-bottom: 14px;
   }
 .barName{
   text-decoration: none;
@@ -232,7 +236,7 @@
   .header-bottom {
     border-bottom: 3px solid #8c78de;
     margin-bottom: 2px;
-    /*pointer-events: none;*/
+    transition: 0.3s;
   }
   .logo-margin {
     margin-left: 2rem;
@@ -242,7 +246,11 @@
       margin-left: 0px !important;
     }
   }
-
-
+  .no-padding {
+    padding-left: 0 !important;
+  }
+  .transition-class {
+    transition: 2s width;
+  }
 </style>
 

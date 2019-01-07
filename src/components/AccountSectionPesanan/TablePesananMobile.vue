@@ -22,6 +22,13 @@
         <div class="col-xs-12">
           <h5 class="margin-h5">Qty:  {{item.quantity}} pcs</h5>
         </div>
+        <div class="col-xs-12">
+          <h5 class="margin-h5" v-if="item.status_transaction==0">Menunggu Pembayaran</h5>
+          <h5 class="margin-h5" v-if="item.status_transaction==1">Pembayaran Diterima</h5>
+          <h5 class="margin-h5" v-if="item.status_transaction==2">Barang Sudah Dikirim</h5>
+          <h5 class="margin-h5" v-if="item.status_transaction==3">Barang Diterima</h5>
+          <h5 class="margin-h5" v-if="item.status_transaction==-1">Pembelian Ditolak</h5>
+        </div>
         <div class="col-cs-12">
           <div class="row wrap justify-end">
             <img style="width: 50%; height: 100px !important;" :src="item.Item.item_image" alt="">

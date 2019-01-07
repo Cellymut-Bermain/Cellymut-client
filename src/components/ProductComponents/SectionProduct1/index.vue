@@ -1,30 +1,30 @@
 <template>
 	<div class="background-section2 section1">
 		<div class="row justify-center">
-			<h1 class="font-size-header-48 font-weight-normal text-navbar">Game Tutorial Monopoly</h1>
+			<h1 class="font-size-header-48 font-weight-normal text-navbar text-animate-right">Game Tutorial Monopoli</h1>
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-xs-12 col-sm-12">
-				<img class="image" :src="gameTutorial1" alt="">
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<img class="image opacity-image " :src="gameTutorial1" alt="">
 			</div>
-			<div class="col-md-6 col-xs-12 col-sm-12">
+			<div class="col-md-6 col-sm-12  col-xs-12">
 				<div class="column items-start right">
 					<div>
-						<p class="T1">Tutorial 1</p> 
-						<p class="description">Permain dimulai dari kotak "Mulai"</p>
+						<p class="T1 text-animate-right ">Tutorial 1</p>
+						<p class="description ">Permain dimulai dari kotak "Mulai"</p>
 					</div>
 					<div>
-						<p class="T2">Tutorial 2</p>
+						<p class="T2 text-animate-right">Tutorial 2</p>
 						<p class="description">Pion dijalankan bergiliran sesuai dengan dadu ke kotak-kotak menurut arah panah</p>
 					</div>
 					<div>
-						<p class="T3">Tutorial 3</p>
+						<p class="T3 text-animate-right">Tutorial 3</p>
 						<p class="description">Dimanapun pion berhenti, pemain dapat membeli hak sewa rumah atau bangunan, dan
 						membayar sewa jika rumah atau bangunan tersebut telah dimiliki pemain lain</p>
 					</div>
 				</div>
-					<div class="row justify-center">
-						<q-btn @click="openPDF" text-color="white"  icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut">
+					<div class="row justify-center ">
+						<q-btn @click="openPDF" text-color="white"  icon-right="arrow_forward_ios" :no-caps="true" class="btn-lanjut text-animate-right">
 							Lihat Selengkapnya
 						</q-btn>
 					</div>
@@ -47,7 +47,7 @@ export default {
 			this.$router.push('/detail')
 		},
     openPDF () {
-      window.open('../../../assets/assets/Game Tutorial monopoly.pdf')
+      window.open('https://firebasestorage.googleapis.com/v0/b/cellymut-staging.appspot.com/o/assets%2FGame%20Tutorial%20monopoly.pdf?alt=media&token=8437726d-973f-4ec4-8c85-b6604420ee7b')
     }
 	}
 }
@@ -62,7 +62,8 @@ export default {
 
 }
 .background-section2 {
-  height: 100vh;
+  height: auto;
+  margin-bottom: 20px;
 }
 .test{
 	padding: 0
@@ -129,7 +130,7 @@ export default {
 }
 @media only screen and (max-width: 400px){
 	.section1{
-		height: 1050px;
+		height: 100%;
 	}
 	.description{
 		margin-right: 2rem;
@@ -139,5 +140,33 @@ export default {
 		/* text-align: center */
 	}
 }
+.text-animate-right {
+  animation: text-move-right 1.5s ;
+}
+.opacity-image {
+  animation: image-opacity 3s;
+  transition: ease-in-out;
+}
+
+  @keyframes text-move-right {
+    from {
+      margin-left: 70%;
+      opacity: 0;
+    }
+    to {
+      margin-left: 0%;
+      opacity: 1;
+    }
+  }
+  @keyframes image-opacity {
+    from {
+      opacity: 0;
+      width: 0%;
+    }
+    to {
+      opacity: 1;
+      width: 100%;
+    }
+  }
 </style>
 

@@ -206,9 +206,14 @@
       },
       getCostCourier (value) {
         console.log('get cost courier')
+        let weight = 4.5
+        if (this.cartDetail.size ==='Single Size (150cm x 230 cm)') {
+          weight = 3.5
+        }
         axios.post(api+'carts/get/ongkir', {
           destination: this.address.city,
-          courier: value
+          courier: value,
+          weight
         })
           .then(({data})=> {
             console.log('oke')
@@ -297,6 +302,7 @@
             console.log(data)
             obj.TransactionId = data.id
             this.addingMessage(obj)
+            this.$store.commit('removeCart', temp.__index)
             this.$store.commit('setModalSummary', false)
             this.$store.commit('setModalPembayaran', true)
             this.deleteCartAfterBuy(temp)

@@ -1,5 +1,5 @@
 const api = 'http://localhost:3000/'
-// const api = 'http://192.168.100.12:3000/'
+// const api = 'http://167.99.67.238:7000/'
 const key = '2d2d3b4ac163a776dabb54b7c763d181'
 const firebase = require('firebase')
 const config = {

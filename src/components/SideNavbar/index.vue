@@ -1,7 +1,7 @@
 <template>
   <div id="mySidenav" class="sidenav">
     <a href="#" class="closebtn" @click="closeNav" >&times;</a>
-    <q-collapsible style="padding: 0 !important;" label="First">
+    <q-collapsible style="padding: 0 !important;" label="First" v-if="loginStatus">
       <template slot="header">
         <a  style="margin-left: -16px" class="align-left" href="#" >Akun Saya</a>
         <q-item-main />
@@ -12,12 +12,15 @@
       <a class="align-left border-top" href="#" @click="toPage('/account/setting')">Pengaturan Akun</a>
       <a class="align-left border-top" href="#" @click="toPage('/account/keranjang')">Keranjang Belanja</a>
       <a class="align-left border-top border-bottom" href="#" @click="toPage('/account/order')">Pesanan Saya</a>
+      <a class="align-left border-top border-bottom" href="#" @click="toPage('/account/inbox')">Updates</a>
+      <a class="align-left border-top border-bottom " href="#" @click="logout" >Keluar</a>
       <!--<a class="align-left border-top border-bottom" href="#" @click="toPage('/account/inbox')">Updates</a>-->
     </q-collapsible>
     <a class="align-left" href="#" @click="toPage('/')">Home</a>
     <a class="align-left" href="#" @click="toPage('/product')">Tutorial</a>
     <a class="align-left" href="#" @click="toPage('/about')">Tentang Kami</a>
     <a class="align-left" href="#" @click="toPage('/askme')">Tanya Kami</a>
+    <a class="align-left" href="#" @click="toPage('/auth')" v-if="!loginStatus">Masuk</a>
   </div>
 </template>
 
@@ -33,6 +36,39 @@
         this.$router.push(loc)
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("toolbar-nav").style.display = "flex"
+      },
+      logout () {
+        swal({
+          title: "Apakah anda yakin?",
+          text: "Ketika anda keluar anda tidak bisa melihat beberapa fitur",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Berhasil Logout!!", {
+                icon: "success",
+              })
+                .then(()=> {
+                  localStorage.clear()
+                  this.$store.commit('setLoginStatus', false)
+                  this.$store.commit('removeToken', null)
+                  this.$store.commit('removeUser', null)
+                  this.$store.commit('emptyCart')
+                  document.getElementById("mySidenav").style.width = "0";
+                  document.getElementById("toolbar-nav").style.display = "flex"
+                  this.$router.push('/auth')
+                })
+            }
+          });
+      },
+    },
+    computed: {
+      loginStatus: {
+        get () {
+          return this.$store.state.loginStatus
+        }
       }
     }
   }

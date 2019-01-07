@@ -9,19 +9,19 @@
           <source :src="video" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
-        <img id="image-transition" class="zoomPic animate" style="width: 130%" v-if="ended && !widthEnded" :src="stopMotion" alt="">
+        <img id="image-transition" class="zoomPic animate " style="width: 130%" v-if="ended && !widthEnded" :src="stopMotion" alt="">
         <img id="image-transition" class="zoomPic" style="width: 100%" v-if="ended && widthEnded" :src="stopMotion" alt="">
       </div>
 
-      <div  class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal self-center" >
+      <div class="col-lg-4 col-md-8 col-sm-12 justify-center padding-right-28 font-weight-normal self-center" >
         <q-card flat>
           <q-card-title align="right" class="text-navbar">
             <h1 v-if="!showText" style="color: #e9e7f1;" class="font-size-header-48 font-weight-normal">Hallo Bunda dan Ayah</h1>
-            <h1 v-if="showText" class="font-size-header-48 font-weight-normal">Hallo Bunda dan Ayah</h1>
+            <h1 v-if="showText" class="font-size-header-48 font-weight-normal animate-text">Hallo Bunda dan Ayah</h1>
           </q-card-title>
           <q-card-main align="right" class="text-navbar font-size-subheader-28 font-weight-normal">
             <p  v-if="!showText" style="color: #e9e7f1;" class="font-weight-normal"> {{textMain}} </p>
-            <p v-if="showText" class="font-weight-normal"> {{textMain}} </p>
+            <p v-if="showText" class="font-weight-normal animate-text"> {{textMain}} </p>
           </q-card-main>
         </q-card>
       </div>
@@ -39,7 +39,7 @@
           </q-card-main>
         </q-card>
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: -200px" >
+      <div class="col-lg-8 col-md-8 col-sm-12"  >
         <img class="stop-motion" :src="stopMotion" alt="">
       </div>
     </div>
@@ -51,7 +51,7 @@
 
   import {stopMotion} from '../../config/images'
   import logo from '../../assets/assets/logo-cellimut.png'
-  import video from '../../assets/assets/celimut-motion (2).mp4'
+  import video from '../../assets/assets/celimut-revised-04.mp4'
   import $ from 'jquery'
   export default {
     mounted () {
@@ -159,6 +159,10 @@
     -webkit-animation: mymove 5s; /* Safari 4.0 - 8.0 */
     animation: mymove 5s;
   }
+  .animate-text {
+    animation: movetext 1s;
+    transition-timing-function: ease-in-out;
+  }
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes mymove {
     0%   { opacity: 0; }
@@ -169,5 +173,27 @@
   @keyframes mymove {
     0%   { opacity: 0; }
     100% { opacity: 1; }
+  }
+  
+  @keyframes movetext {
+    from {
+      margin-top: 60%;
+    }
+
+    to {
+      margin-top: 0%;
+    }
+  }
+  .image-width {
+    animation: image-width 2s;
+    transition: ease-in-out;
+  }
+  @keyframes image-width {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
   }
 </style>

@@ -21,9 +21,9 @@
                 label="show/hide password"
                 @input="changeLogin"
               /><br><br>
-              <q-btn @click="sign_in" label="Masuk" class="btn-auth" /><br><br>
+              <q-btn :loading="loading" @click="sign_in" label="Masuk" class="btn-auth" /><br><br>
 
-              <q-btn @click="fbSignIn" icon="fab fa-facebook-f" label="Masuk Dengan Facebook" class="btn-fb" />
+              <q-btn  @click="fbSignIn" icon="fab fa-facebook-f" label="Masuk Dengan Facebook" class="btn-fb" />
             </div>
           </div>
 
@@ -71,7 +71,7 @@
       </div>
 
       <div v-if="width<=991" style="width: 100%; margin-top: 24px">
-        <q-tabs  animated swipeable text-color="black" color="transparent" align="justify">
+        <q-tabs  :swipeable='false' animated text-color="black" color="transparent" align="justify">
           <q-tab default name="signin" slot="title" label="Sign In" />
           <q-tab name="signup" slot="title"  label="Sign Up" />
 
@@ -160,7 +160,8 @@
         terms : null,
         error: false,
         checkedLogin: false,
-        checkedRegister: false
+        checkedRegister: false,
+        loading: false
       }
     },
     methods: {
@@ -232,6 +233,7 @@
         this.height = y
       },
       sign_in () {
+        this.loading = true
         auth.signInWithEmailAndPassword(this.email_sign_in, this.password_sign_in).then(({user})=> {
           console.log(user)
           if (user.emailVerified) {
@@ -267,6 +269,8 @@
               this.$router.push('/')
               this.$store.commit('setLoginStatus', true)
               this.$store.commit('setPage', 'home')
+              this.$store.commit('setWidthEnded', true)
+              this.loading = false
             }
             else {
               swal(data.msg)
@@ -343,6 +347,7 @@
             }
           })
           .catch(err=> {
+            console.log(err, 'kenapa ya')
             console.log(err)
             swal('error happen!')
           })
@@ -364,7 +369,6 @@
               console.log('Email is verified');
             }
             else {
-              console.log('Email is not verified');
               user.sendEmailVerification();
             }
           } else {
