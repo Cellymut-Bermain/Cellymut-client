@@ -21,7 +21,7 @@
 				<q-card flat>
 					<q-card-title align="left" class="text-navbar">
 						<h1 v-if="productDetail" class="font-size-header-48 font-weight-normal"> {{productDetail.item_name}} </h1>
-						<h1 v-if="productDetail" class="font-size-header-48 font-weight-normal">Rp.{{productDetail.item_price | parsedMoney}}</h1>
+						<h1 v-if="productDetail" class="font-size-header-48 font-weight-normal">Rp.{{price | parsedMoney}}</h1>
 					</q-card-title>
 					<q-card-main class="row">
 						<div class="row wrap col-md-3 col-xs-12 col-sm-12">
@@ -70,7 +70,7 @@
                 <q-btn v-if="colors.length===0" disabled no-ripple> Soldout </q-btn>
               </q-card-actions>
 							<p>Included with the purchase of this product:</p>
-							<ul>
+							<ul v-if="productDetail.id===2">
 								<li>
 									Kartu tantangan
 								</li>
@@ -84,6 +84,23 @@
 									Kartu balita (untuk pembelian selimut ular tangga untuk anak balita)
 								</li>
 							</ul>
+              <ul v-if="productDetail.id===1">
+                <li>
+                  Kartu Kesempatan
+                </li>
+                <li>
+                  Kartu Petunjuk
+                </li>
+                <li>
+                  Kartu Hak Sewa Bangunan
+                </li>
+                <li>
+                  Uang Monopoli
+                </li>
+                <li>
+                  Boneka Dadu Besar
+                </li>
+              </ul>
 
 						</div>
 					</q-card-main>
@@ -94,7 +111,7 @@
 <script>
 import {
   ularTangga,pilihan3, blush, cedar, charcoal, denim, dijon, flint,
-  mullberry, mustard, ocean, orange, penny, red, roselight, rosewood, squash
+  mullberry, mustard, ocean, orange, penny, red, roselight, redwood, squash
 } from '../../../config/images.js'
 import {mapState, mapActions} from 'vuex'
 import {mullbery} from "../../../config/images";
@@ -115,10 +132,11 @@ export default {
       ],
       size: null,
       colors: [
-        mullberry, mustard, orange, penny, red, roselight, rosewood, squash
+        mullberry, mustard, orange, penny, red, roselight, redwood, squash
       ],
       option: '',
-      radioCheck: false
+      radioCheck: false,
+      price: 850000
     }
   },
   computed: {
@@ -195,6 +213,7 @@ export default {
             forChanging.push(color[temp[i].color])
           }
           this.colors = forChanging
+          this.price = temp[0].item_price
           console.log(this.colors,'apa nih isinya')
           console.log(temp)
         })

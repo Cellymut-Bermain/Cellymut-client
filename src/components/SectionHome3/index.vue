@@ -21,8 +21,7 @@
           </q-card-title>
           <q-card-main align="center" class="text-section3 font-size-subheader-18 font-weight-normal" style="padding-left: 64px; padding-right: 64px">
             <p class="font-weight-normal">
-              Included with the purchase of this product: Kartu kesempatan, Kartu petunjuk,
-              Kartu hak sewa rumah, Boneka dadu besar, Uang monopoli
+              Included with the purchase of this product: Boneka dadu kecil, boneka ular, kartu tantangan, kartu tantangan balita
             </p>
           </q-card-main>
           <q-card-actions align="center" >

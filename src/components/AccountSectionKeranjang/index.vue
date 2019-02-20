@@ -10,6 +10,7 @@
     <ModalAddress />
     <ModalSummary v-if="cartDetail" />
     <ModalPembayaran v-if="cartDetail" />
+    <ModalDetail />
   </div>
 </template>
 
@@ -19,6 +20,7 @@
   import ModalAddress from '../Modal/ModalAddress'
   import ModalSummary from '../Modal/ModalSummary'
   import ModalPembayaran from '../Modal/ModalPembayaran'
+  import ModalDetail from '../Modal/ModalDetail'
   import {mapState, mapActions} from 'vuex'
   export default {
     components: {
@@ -26,7 +28,8 @@
       ModalAddress,
       ModalSummary,
       ModalPembayaran,
-      TableCartMobile
+      TableCartMobile,
+      ModalDetail
     },
     computed: {
       ...mapState([

@@ -3,7 +3,7 @@
 		<div class="row justify-center">
 			<h1 class="font-size-header-48 font-weight-normal text-navbar">Game Tutorial Ular Tangga</h1>
 		</div>
-		<div class="row">
+		<div class="row wrap">
 			<div class="col-md-6 col-xs-12 col-sm-12">
 				
 				<div class="column items-start right">
@@ -14,7 +14,7 @@
               terbanyak dapat memainkan permainan terlebih dahulu.
             </p>
 					</div>
-					<div>
+					<div style="margin-top: 24px">
 						<p class="T1">Tutorial 2</p>
 						<p class="description">
               Permainan dimulai dari kotak angka 1

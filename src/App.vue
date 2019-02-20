@@ -142,4 +142,5 @@ export default {
     transition-timing-function: ease-in-out;
   }
 
+
 </style>

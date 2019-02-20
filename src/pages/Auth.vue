@@ -233,6 +233,7 @@
         this.height = y
       },
       sign_in () {
+        let self = this
         this.loading = true
         auth.signInWithEmailAndPassword(this.email_sign_in, this.password_sign_in).then(({user})=> {
           console.log(user)
@@ -241,9 +242,11 @@
           }
           else {
             swal('Anda belum memverifikasi akun!!')
+            this.loading = false
           }
         }).catch(function(error) {
           console.log(error)
+          self.loading = false
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -274,9 +277,13 @@
             }
             else {
               swal(data.msg)
+                .then(()=> {
+                  this.loading = false
+                })
             }
           })
           .catch(err=> {
+            this.loading = false
             console.log(err)
           })
       },

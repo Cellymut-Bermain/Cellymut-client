@@ -25,7 +25,7 @@ import orange from '../assets/color/orange.jpg'
 import penny from '../assets/color/penny.jpg'
 import red from '../assets/color/red.jpg'
 import roselight from '../assets/color/roselight.jpg'
-import rosewood from '../assets/color/rosewood.jpg'
+import redwood from '../assets/color/redwood.jpg'
 import squash from '../assets/color/squash.jpg'
 
 
@@ -33,8 +33,19 @@ import fotoProduct2 from '../assets/assets/foto-product2.jpg'
 import productUlar from '../assets/assets/product-ular.jpg'
 
 
+import monopolyCart from '../assets/assets/monopoly_cart.jpg'
+import kartu100 from '../assets/uang-mainan/uang/Kartu-100.jpg'
+import kartu200 from '../assets/uang-mainan/uang/Kartu-200.jpg'
+import kartu50 from '../assets/uang-mainan/uang/Kartu-50.jpg'
+import kartu25 from '../assets/uang-mainan/uang/Kartu-25.jpg'
+
+
 // import stopMotion from '../assets/assets/stop-motion.png'
 export {
+  kartu100,
+  kartu200,
+  kartu50,
+  kartu25,
   bca,
   gambarBaru,
   logo,
@@ -60,9 +71,10 @@ export {
   penny,
   red,
   roselight,
-  rosewood,
+  redwood,
   squash,
   fotoProduct2,
-  productUlar
+  productUlar,
+  monopolyCart
 
 }

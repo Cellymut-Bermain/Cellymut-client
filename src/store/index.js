@@ -26,6 +26,7 @@ export default new Vuex.Store({
     modalAddress : false,
     modalSummary: false,
     modalPembayaran: false,
+    modalDetail: false,
     cart: [],
     cartDetail: null,
     updates: [],
@@ -107,6 +108,9 @@ export default new Vuex.Store({
     },
     setModalPembayaran (state, payload) {
       state.modalPembayaran = payload
+    },
+    setModalDetail (state, payload) {
+      state.modalDetail = payload
     },
 
     setWidthHeight(state, payload) {

@@ -1,52 +1,81 @@
 <template>
   <div style="width: 100%">
-  <div v-if="width>480" class="row wrap section4 items-center justify-end mobile-footer" style="color:#6c6c6c" >
-    <div class="col-lg-6 col-md-12">
-        <q-card flat class="top-footer">
+  <div v-if="width>950" class="row wrap section4 items-center justify-center" style="color:#6c6c6c" >
+
+    <div class="col-lg-3">
+      <div class="row wrap items-center justify-center ">
+        <q-card flat>
           <q-card-main>
-            <p class="p-margin-bot"> Tutorial </p>
-            <p class="p-margin-bot"> Tentang Kami</p>
-            <p class="p-margin-bot"> Tanya Kami</p>
-          </q-card-main>
-        </q-card>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <div class="row wrap justify-end margin-right-footer">
-        <q-card flat style="margin-right: 48px">
-          <q-card-title>
-            Contact us:
-          </q-card-title>
-          <q-card-main>
-            <p class="p-margin-bot">Phone: +62 822-3103-0330 - Maria / +62 817-0333-9038 - Jane </p>
-            <p class="p-margin-bot">Email: selimutbermain@gmail.com</p>
+            <p @click="toRoute('product')" class="p-margin-bot pointer-nav" > Tutorial </p>
+            <p @click="toRoute('about')" class="p-margin-bot pointer-nav"> Tentang Kami</p>
+            <p @click="toRoute('askme')" class="p-margin-bot pointer-nav"> Tanya Kami</p>
           </q-card-main>
         </q-card>
       </div>
     </div>
-    <div class="col-lg-12">
-      <div class="row wrap justify-end margin-right-footer margin-right-footer" >
-        <p style="margin-bottom: 0">© Copyright 2018 Cellymut</p>
-        <img class="image-size-footer" style="cursor: pointer; margin-left: 24px;margin-right: 24px" :src="facebook" alt="">
-        <img class="image-size-footer" style="cursor: pointer;" @click="openSosial('https://www.instagram.com/selimutbermain')"  :src="instagram" alt="">
+
+    <div class="col-lg-1">
+      <div class="row wrap items-start justify-end">
+      <q-card-title style="margin-top: -48px">
+        Contact:
+      </q-card-title>
+      </div>
+    </div>
+    <div class="col-lg-3 " >
+      <div class="row wrap justify-left">
+        <q-card flat>
+          <q-card-main>
+            <p class="p-margin-bot" >Maria: +62 822-3103-0330   </p>
+            <p class="p-margin-bot" >Jane: +62 817-0333-9038</p>
+            <p class="p-margin-bot" >Email: selimutbermain@gmail.com</p>
+          </q-card-main>
+        </q-card>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="row wrap justify-center" >
+        <q-card flat>
+          <q-card-title>
+            © Copyright 2018 Cellymut
+            <img class="image-size-footer" style="cursor: pointer; margin-left: 24px;margin-right: 24px" @click="openSosial('https://www.facebook.com/Selimut-Bermain-536283366850948')" :src="facebook" alt="">
+            <img class="image-size-footer" style="cursor: pointer;" @click="openSosial('https://www.instagram.com/selimutbermain')"  :src="instagram" alt="">
+          </q-card-title>
+        </q-card>
       </div>
     </div>
   </div>
 
-    <div v-if="width<=480"  style="width: 100%; margin-top: 2rem">
-      <div class="col-md-6 col-xs-12 ">
+    <div v-if="width<=950"  style="width: 100%; margin-top: 2rem;color:#6c6c6c" >
+
+      <div class="col-xs-12">
         <div class="row wrap justify-start mobile-footer">
           <p class="copy">© Copyright 2018 Cellymut</p>
         </div>
       </div>
+      <div class="col-xs-12 ">
+        <q-card-title class="align-center">
+          Contact us:
+        </q-card-title>
+        <div class="row wrap justify-start mobile-footer">
+          <p >Maria: +62 822-3103-0330  </p>
+        </div>
+        <div class="row wrap justify-start mobile-footer">
+          <p >Jane: +62 817-0333-9038</p>
+        </div>
+        <div class="row wrap justify-start mobile-footer">
+          <p >Email: selimutbermain@gmail.com</p>
+        </div>
+      </div>
 
-      <div class="col-md-6 col-xs-12 ">
+      <div class="col-xs-12 ">
 
         <div class="row wrap justify-end right mobile-footer">
           <div class="col-md-1 col-xs-1 ">
-            <img style="cursor: pointer" :src="facebook" alt="">
+            <img style="cursor: pointer" @click="openSosial('https://www.facebook.com/Selimut-Bermain-536283366850948')" :src="facebook" alt="">
           </div>
 
-          <div class="col-md-1 col-xs-1">
+          <div class="col-xs-1">
             <img style="cursor: pointer" @click="openSosial('https://www.instagram.com/selimutbermain')"  :src="instagram" alt="">
           </div>
         </div>
@@ -77,19 +106,26 @@
     },
     methods: {
       openSosial (value) {
-        window.open(value)
+        console.log('value', value)
+        // window.location = value
+        window.open(value, '_blank')
+      },
+      toRoute(value) {
+        this.$router.push('/'+value)
       }
     }
   }
 </script>
 
 <style scoped>
+  .pointer-nav {
+    cursor: pointer;
+  }
   .section4{
     height: auto;
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    margin-bottom: 24px;
   }
   .copy{
     /* position: absolute; */

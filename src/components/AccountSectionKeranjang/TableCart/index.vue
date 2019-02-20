@@ -12,6 +12,9 @@
           <div class="col-lg-6">
             <img style="width: 100px; height: auto" :src="props.row.Item.item_image" alt="">
           </div>
+          <q-card-actions align="center">
+            <q-btn @click="openModalDetail(props.row)" flat>Detail</q-btn>
+          </q-card-actions>
         </div>
       </q-td>
 
@@ -119,6 +122,10 @@
       openModalAddress (row) {
         this.$store.commit('setCartDetail', row)
         this.$store.commit('setModalAddress', true)
+      },
+      openModalDetail (row ) {
+        this.$store.commit('setCartDetail', row)
+        this.$store.commit('setModalDetail', true)
       },
       fetchingCart () {
         axios.get(api+'carts', {

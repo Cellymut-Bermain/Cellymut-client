@@ -48,6 +48,7 @@
           <q-btn flat @click="logout"  color="red" >keluar</q-btn>
         </div>
       </div>
+
       <div v-if="page!=='account-order'" class="col-lg-8 col-md-12 margin-left-4-rem akun-saya "   >
         <div  class="row wrap justify-center items-start padding-mobile-setting">
         <router-view/>
@@ -59,6 +60,7 @@
           <router-view/>
         </div>
       </div>
+
     </div>
     <!--<Footer />-->
   </div>

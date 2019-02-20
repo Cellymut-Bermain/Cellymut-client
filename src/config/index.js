@@ -1,6 +1,5 @@
-const api = 'http://localhost:3000/'
-// const api = 'http://167.99.67.238:7000/'
-const key = '2d2d3b4ac163a776dabb54b7c763d181'
+// const api = 'http://localhost:3000/'
+const api = 'http://167.99.67.238:7000/'
 const firebase = require('firebase')
 const config = {
   storageBucket: "cellymut-staging.appspot.com",
@@ -15,5 +14,5 @@ const fbLogin = firebase.auth()
 const auth = firebase.auth()
 const storage = firebase.storage()
 export {
-  api, storage, fbLogin, provider, key, auth
+  api, storage, fbLogin, provider, auth
 }

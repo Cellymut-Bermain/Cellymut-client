@@ -2,7 +2,7 @@
   "name": "celimut-client",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Celimut",
+  "productName": "Cellymut",
   "cordovaId": "org.cordova.quasar.app",
   "author": "ariefardi <forzaariefpyon@gmail.com>",
   "private": true,
